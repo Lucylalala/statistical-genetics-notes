@@ -1637,128 +1637,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#q6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q6（中等偏上：把扩散写出来，并解释边界）
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-wf-1-sde" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A. 从原始 WF 扩散到“条件固着到 1”的 SDE
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="A. 从原始 WF 扩散到“条件固着到 1”的 SDE">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a1-wf" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A1) 原始中性无突变 WF 扩散：生成元是什么？
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#a2-1-hp-hpp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A2) “最终固着到 1”的概率 (h(p)) 是什么？为什么是 (h(p)=p)？
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#a3-doob-h-transform" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A3) Doob (h)-transform：条件过程的生成元怎么来？
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#a4-sde" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A4) 从生成元读出条件过程的 SDE
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#b" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        B. 条件平均固着时间的对数形式从哪里来？
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="B. 条件平均固着时间的对数形式从哪里来？">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#b1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        B1) 关键结论：平均首次到达时间满足生成元方程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        B2) 直接给出解并验证（最快、最干净）
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        C. 小结：你关心的两句“从哪来的”现在都闭环了
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1992,6 +1870,8 @@
                   
 
 
+
+  <h1>Diffusion approximation</h1>
 
 <h2 id="1-conceptual-motivation">1. Conceptual motivation<a class="headerlink" href="#1-conceptual-motivation" title="Permanent link">&para;</a></h2>
 <p>The Wright–Fisher model provides an exact, discrete-time description of allele frequency evolution in a finite population.<br />
@@ -2242,226 +2122,25 @@ SFS / LD / GWAS
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
-<p>[[Wright_Fisher_model]]</p>
+<p><a href="../Wright_Fisher_model/">Wright_Fisher_model</a></p>
 </li>
 <li>
-<p>[[Genetic drift]]</p>
+<p><a href="../../02_Processes/Genetic%20drift/">Genetic drift</a></p>
 </li>
 <li>
-<p>[[Selection_continuous]]</p>
+<p><a href="../../02_Processes/Selection/Selection_continuous/">Selection_continuous</a></p>
 </li>
 <li>
-<p>[[Coalescent_theory]]</p>
+<p><a href="../Coalescent_theory/">Coalescent_theory</a></p>
 </li>
 <li>
-<p>[[Population_structure]]</p>
+<p><a href="../../01_Core/02_Structual_state/Population_structure/">Population_structure</a></p>
 </li>
 <li>
-<p>[[GWAS_K_matrix]]</p>
+<p><a href="../../04_Statistics/GWAS_K_matrix/">GWAS_K_matrix</a></p>
 </li>
 </ul>
 <hr />
-<p><strong>评分：10 / 10（这题你答得像教科书）</strong></p>
-<p>你把三件事都讲清楚了，而且逻辑闭环非常漂亮：</p>
-<ol>
-<li>
-<p><strong>单代漂变弱</strong>：方差 (O(1/N))，典型步长（标准差）(O(1/\sqrt N))。</p>
-</li>
-<li>
-<p><strong>固定代数尺度下极限退化</strong>：累计方差 (O(t/N))，若 (t) 不随 (N) 变大则 (\to 0)。</p>
-</li>
-<li>
-<p><strong>为什么选 (\tau=t/(2N))</strong>：需要 (t=O(N)) 才能得到非退化极限；用 (2N) 让扩散系数直接变成 (p(1-p)) 这种最干净的形式。</p>
-</li>
-</ol>
-<p>特别加分点：你把“方差增长率/单位时间方差”算出了 (p(1-p))，这正是 diffusion approximation 的核心推导。</p>
-<hr />
-<h2 id="q6">Q6（中等偏上：把扩散写出来，并解释边界）<a class="headerlink" href="#q6" title="Permanent link">&para;</a></h2>
-<p>继续在中性 WF 的扩散近似框架下，你已经得到：</p>
-<ul>
-<li>
-<p>(a(p)=0)（漂移系数）</p>
-</li>
-<li>
-<p>(b(p)=p(1-p))（扩散系数）</p>
-</li>
-</ul>
-<p>请你完成三件事（都用一句到两句说明即可）：</p>
-<ol>
-<li>
-<p>写出对应的 SDE：<br />
-    [<br />
-    dp_\tau = \ ?\ d\tau \ + \ ?\ dW_\tau<br />
-    ]</p>
-</li>
-<li>
-<p>解释为什么在 (p=0) 或 (p=1) 处噪声项“关掉”了（从 (b(p)) 的形式解释，不要只说吸收）。</p>
-</li>
-<li>
-<p>在这个扩散模型里，边界 (p=0,1) 通常对应什么边界条件（absorbing/reflecting/其他）？在<strong>无突变</strong>时你选哪个？为什么？</p>
-</li>
-</ol>
-<p>你来答。答完我会按你的薄弱点把后面 4 题（Q7–Q10）往选择、突变、有效群体大小、structured coalescent 或 SFS 的方向调。</p>
-<div class="arithmatex">\[
-dp_\tau =0 \ d\tau \ + \sqrt{p(1-p)} dW_\tau  
-\]</div>
-<p>你问的“具体怎么推导”，核心其实就两步：</p>
-<ol>
-<li>
-<p><strong>把“条件于最终固着到 1”写成对马尔可夫过程的 Doob (h)-transform（(h) 变换）</strong>，从而得到条件过程的生成元（也就等价得到 SDE 的漂移项）。</p>
-</li>
-<li>
-<p>在这个“条件过程”下，<strong>平均到达 1 的时间</strong>满足一个二阶常微分方程（生成元的边值问题），解出来就是那个带 (\ln(1-p)) 的形式。</p>
-</li>
-</ol>
-<p>我按这两步把关键计算写全（但不做冗长的背景证明）。</p>
-<hr />
-<h1 id="a-wf-1-sde">A. 从原始 WF 扩散到“条件固着到 1”的 SDE<a class="headerlink" href="#a-wf-1-sde" title="Permanent link">&para;</a></h1>
-<h2 id="a1-wf">A1) 原始中性无突变 WF 扩散：生成元是什么？<a class="headerlink" href="#a1-wf" title="Permanent link">&para;</a></h2>
-<p>在 (\tau=t/(2N)) 尺度下，中性无突变 WF 扩散写成</p>
-<p>[<br />
-dp_\tau=\sqrt{p_\tau(1-p_\tau)},dW_\tau,\qquad p_\tau\in[0,1].<br />
-]</p>
-<p>对应的生成元（generator）是</p>
-<p>[<br />
-(Lf)(p)=\frac12,p(1-p),f''(p).<br />
-]</p>
-<p>（因为一般 SDE (dp=a(p)d\tau+b(p)dW) 的生成元是 (Lf=a f' +\frac12 b^2 f'')。这里 (a=0,\ b^2=p(1-p))。）</p>
-<hr />
-<h2 id="a2-1-hp-hpp">A2) “最终固着到 1”的概率 (h(p)) 是什么？为什么是 (h(p)=p)？<a class="headerlink" href="#a2-1-hp-hpp" title="Permanent link">&para;</a></h2>
-<p>令<br />
-[<br />
-h(p)=\mathbb P_p(\text{先到达 }1\text{ 而不是 }0).<br />
-]</p>
-<p>对一维扩散，(h) 满足边值问题</p>
-<p>[<br />
-Lh=0,\qquad h(0)=0,\ h(1)=1.<br />
-]</p>
-<p>代入 (Lh=\frac12 p(1-p)h''(p)=0) 得 (h''(p)=0\Rightarrow h(p)=Ap+B)。<br />
-用边界条件 (h(0)=0, h(1)=1) 得 (h(p)=p)。</p>
-<hr />
-<h2 id="a3-doob-h-transform">A3) Doob (h)-transform：条件过程的生成元怎么来？<a class="headerlink" href="#a3-doob-h-transform" title="Permanent link">&para;</a></h2>
-<p>“条件于最终固着到 1”的过程，本质上是把转移倾向按“更容易最终到 1”的轨迹加权。连续时间下对应的标准公式是：</p>
-<p>[<br />
-\boxed{ \ (L^{(h)}f)(p)=\frac{1}{h(p)},L\big(h f\big)(p)\ } \qquad (p\in(0,1)).<br />
-]</p>
-<p>这里 (h(p)=p)。</p>
-<p>现在我们直接算 (L^{(h)})：</p>
-<p>先算 ((hf)'')。因为 (h(p)=p)，所以 (hf=pf)：</p>
-<p>[<br />
-(pf)' = f + p f',\qquad<br />
-(pf)'' = 2f' + p f''.<br />
-]</p>
-<p>代回 (L(hf))：</p>
-<p>[<br />
-L(pf)<br />
-=\frac12 p(1-p),(pf)''<br />
-=\frac12 p(1-p),(2f' + p f'').<br />
-]</p>
-<p>再除以 (h(p)=p)：</p>
-<p>[<br />
-L^{(h)}f<br />
-=\frac{1}{p},L(pf)<br />
-=\frac12(1-p),(2f' + p f'')<br />
-=(1-p)f' + \frac12 p(1-p)f''.<br />
-]</p>
-<p>所以条件过程的生成元是</p>
-<p>[<br />
-\boxed{<br />
-(L^{(h)}f)(p)=(1-p)f'(p)+\frac12 p(1-p)f''(p).<br />
-}<br />
-]</p>
-<hr />
-<h2 id="a4-sde">A4) 从生成元读出条件过程的 SDE<a class="headerlink" href="#a4-sde" title="Permanent link">&para;</a></h2>
-<p>对一维扩散，若<br />
-[<br />
-Lf = a(p)f' + \frac12 b(p)^2 f'',<br />
-]<br />
-那么 SDE 就是<br />
-[<br />
-dp = a(p),d\tau + b(p),dW.<br />
-]</p>
-<p>我们刚算得<br />
-[<br />
-L^{(h)}f=(1-p)f' + \frac12 p(1-p)f'',<br />
-]<br />
-因此</p>
-<p>[<br />
-\boxed{<br />
-dp_\tau = (1-p_\tau),d\tau + \sqrt{p_\tau(1-p_\tau)},dW_\tau.<br />
-}<br />
-]</p>
-<p>这就是你之前看到的“条件于最终固着到 1 后，多出来一个漂移 ((1-p))”——它不是拍脑袋加的，是 (h)-transform 算出来的。</p>
-<hr />
-<h1 id="b">B. 条件平均固着时间的对数形式从哪里来？<a class="headerlink" href="#b" title="Permanent link">&para;</a></h1>
-<p>现在在“条件过程”下，我们要算：从 (p) 出发到达 1 的首次到达时间的期望</p>
-<p>[<br />
-m(p)=\mathbb E^{(h)}<em>p[T_1],\qquad T_1=\inf{\tau:\ p</em>\tau=1}.<br />
-]</p>
-<h2 id="b1">B1) 关键结论：平均首次到达时间满足生成元方程<a class="headerlink" href="#b1" title="Permanent link">&para;</a></h2>
-<p>对扩散过程，首次到达时间的期望满足（这是标准的 Dynkin 公式/后向方程结论）：</p>
-<p>[<br />
-\boxed{<br />
-L^{(h)} m(p) = -1,\quad p\in(0,1),<br />
-}<br />
-]<br />
-配边界条件：</p>
-<ul>
-<li>
-<p>到达 1 时间为 0：(\ m(1)=0)；</p>
-</li>
-<li>
-<p>在 (p\to0) 不能发散（“条件过程”下 0 实际上不再是会被碰到的吸收点，但解要保持有界/可接受）。</p>
-</li>
-</ul>
-<p>把 (L^{(h)}) 代入：</p>
-<p>[<br />
-(1-p)m'(p)+\frac12 p(1-p)m''(p)=-1.<br />
-]</p>
-<p>两边除以 (1-p)（在 (p\in(0,1)) 合法）：</p>
-<p>[<br />
-m'(p)+\frac12 p,m''(p)=-\frac{1}{1-p}.<br />
-]</p>
-<p>这是一个二阶 ODE。</p>
-<h2 id="b2">B2) 直接给出解并验证（最快、最干净）<a class="headerlink" href="#b2" title="Permanent link">&para;</a></h2>
-<p>你提示的形式其实已经暗示了答案。给出候选：</p>
-<div class="arithmatex">\[  
-\boxed{  
-m(p)= -2\,\frac{1-p}{p}\,\ln(1-p).  
-}  
-\]</div>
-<p>你可以快速验证它确实满足 ODE（我把代入结果写出来）：</p>
-<div class="arithmatex">\[
-(1-p)m'(p)+\frac12 p(1-p)m''(p)=-1,  
-$$  
-并且  
-$$ 
-\lim_{p\to1} m(p)=0,\qquad \lim_{p\to0} m(p)=2 \ (\text{有界}).  
-\]</div>
-<p>因此它就是唯一的“合理解”。</p>
-<hr />
-<h1 id="c">C. 小结：你关心的两句“从哪来的”现在都闭环了<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
-<ul>
-<li>
-<p><strong>条件 SDE</strong>（为什么出现 ((1-p))）：<br />
-    [<br />
-    \text{来自 } h(p)=p \text{ 的 Doob }h\text{-transform： }L^{(h)}f=\frac1hL(hf).<br />
-    ]</p>
-</li>
-<li>
-<p><strong>条件平均固着时间的对数形状</strong>：<br />
-    [<br />
-    m(p)=\mathbb E[T_1\mid \text{最终固着到 1}]<br />
-    \text{ 是 }L^{(h)}m=-1 \text{ 的解，解自然出现 }\ln(1-p).<br />
-    ]</p>
-</li>
-</ul>
-<hr />
-<p>如果你愿意，我也可以用“离散 WF 一步转移 + Bayes”给你一个直观推导 (h)-transform 的版本：<br />
-[<br />
-\mathbb P^{\text{cond}}(i\to j)=\mathbb P(i\to j)\frac{h(j)}{h(i)},<br />
-]<br />
-然后再取扩散极限得到同一个 ((1-p)) 漂移项。这样你会更有“为什么 conditioning 会产生 drift”的直觉。</p>
 
 
 
