@@ -1,0 +1,2950 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notes on population genetics and quantitative genetics">
+      
+      
+        <meta name="author" content="Lucylalala">
+      
+      
+      
+        <link rel="prev" href="../../02_Processes/Selection/Selection_continuous/">
+      
+      
+        <link rel="next" href="../Diffusion_approximation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Wright–Fisher model - Statistical Genetics Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-what-the-wrightfisher-model-is" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Statistical Genetics Notes" class="md-header__button md-logo" aria-label="Statistical Genetics Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Statistical Genetics Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Wright–Fisher model
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00_Meta/What_is_statistical_genetics_about/" class="md-tabs__link">
+          
+  
+  
+  Meta
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01_Core/00_single_locus/Allele_frequency/" class="md-tabs__link">
+          
+  
+  
+  Core concepts
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02_Processes/Genetic%20drift/" class="md-tabs__link">
+          
+  
+  
+  Evolutionary processes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Models
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04_Statistics/GWAS_K_matrix/" class="md-tabs__link">
+          
+  
+  
+  Statistics
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Statistical Genetics Notes" class="md-nav__button md-logo" aria-label="Statistical Genetics Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Statistical Genetics Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meta
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Meta
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_Meta/What_is_statistical_genetics_about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What is statistical genetics?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Single locus
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Single locus
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Core/00_single_locus/Allele_frequency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Allele frequency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Core/00_single_locus/Hardy_Weinberg_equilibrium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardy–Weinberg equilibrium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structural state
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Structural state
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Core/02_Structual_state/Linkage_disequilibrium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linkage disequilibrium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Core/02_Structual_state/Population_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Population structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dynamics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Core/Frequency%20dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frequency dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Core/Variance%20dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variance dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evolutionary processes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Evolutionary processes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Genetic%20drift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Genetic drift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Mutation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mutation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Selection
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Selection
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Selection%28general%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Fitness_scheme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fitness scheme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Dominance_selection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dominance selection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Overdominance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overdominance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Underdominace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Underdominance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Balancing_selection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Balancing selection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Mutation_selection_balance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mutation–selection balance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Selection_continuous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous selection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wright–Fisher model
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wright–Fisher model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-the-wrightfisher-model-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What the Wright–Fisher model is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Core assumptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-state-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. State variable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-transition-rule-binomial-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Transition rule (binomial sampling)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-expectation-and-variance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Expectation and variance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Expectation and variance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expectation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expectation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-absorbing-boundaries-and-fixation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Absorbing boundaries and fixation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-fixation-probability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Fixation probability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-time-to-fixation-order-of-magnitude" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Time to fixation (order of magnitude)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-relation-to-genetic-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Relation to genetic drift
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-from-wrightfisher-to-diffusion-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. From Wright–Fisher to diffusion approximation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-position-in-the-dynamics-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Position in the dynamics framework
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-what-the-wrightfisher-model-does-not-include" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. What the Wright–Fisher model does not include
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-conceptual-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Conceptual summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mathbbek_t1mid-p_t2n-p_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么 \(\mathbb{E}[K_{t+1}\mid p_t]=2N p_t\)？
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mathbbep_t1mid-p_tp_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        顺带一提：这一步马上推出 $\(\mathbb{E}[p_{t+1}\mid p_t]=p_t\)$
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-wrightfisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) 仍从 Wright–Fisher 的抽样假设出发
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-mathrmvark_t1mid-p_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) 推导 (\mathrm{Var}(K_{t+1}\mid p_t))
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-mathrmvarp_t1mid-p_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) 推导 (\mathrm{Var}(p_{t+1}\mid p_t))
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-p01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) 边界 (p=0,1) 的含义（为什么重要）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-diffusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5) 一句总结（把这步和 diffusion 接上）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0) 模型设定与符号
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-mathbbep_t1mid-p_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) 先推 (\mathbb{E}[p_{t+1}\mid p_t])
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1) 先推 (\mathbb{E}[p_{t+1}\mid p_t])">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-mathbbek_t1mid-p_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 先推 (\mathbb{E}[K_{t+1}\mid p_t])（指示变量法）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-mathbbep_t1mid-p_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 再得到 (\mathbb{E}[p_{t+1}\mid p_t])
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-mathbbep_t1-p_tmid-p_t0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) 推 (\mathbb{E}[p_{t+1}-p_t\mid p_t]=0)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-mathrmvarp_t1-p_tmid-p_tdfracp_t1-p_t2n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) 推 (\mathrm{Var}(p_{t+1}-p_t\mid p_t)=\dfrac{p_t(1-p_t)}{2N})
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3) 推 (\mathrm{Var}(p_{t+1}-p_t\mid p_t)=\dfrac{p_t(1-p_t)}{2N})">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-mathrmvark_t1mid-p_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 先算 (\mathrm{Var}(K_{t+1}\mid p_t))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-mathrmvarp_t1mid-p_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 再算 (\mathrm{Var}(p_{t+1}\mid p_t))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 最后变成增量的方差
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-diffusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) 你现在得到的两条在 diffusion 里怎么用（先给你一个定位）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-n-wf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) 为什么 (N) 很大时，WF 的单代漂变“很弱”？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1) 为什么 (N) 很大时，WF 的单代漂变“很弱”？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 用方差量级说明“每代波动很小”
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-taut2n-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) 为什么要用 (\tau=t/(2N)) 这种尺度，而不是直接用 (t)？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2) 为什么要用 (\tau=t/(2N)) 这种尺度，而不是直接用 (t)？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-t-ntoinfty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 看累计波动：固定 (t) 时，(N\to\infty) 变化会消失
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-t-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 让极限“有东西发生”：需要让 (t) 与 (N) 同阶
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-tau-2n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 再用“每单位 (\tau) 的方差增量”解释为什么是 (2N)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        你可以记成两句“硬逻辑链”
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Diffusion_approximation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diffusion approximation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Coalescent_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coalescent theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Site_frequency_spectrum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Site frequency spectrum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Background_selection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Background selection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_Statistics/GWAS_K_matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GWAS K matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_Statistics/Speciation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Speciation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h2 id="1-what-the-wrightfisher-model-is">1. What the Wright–Fisher model is<a class="headerlink" href="#1-what-the-wrightfisher-model-is" title="Permanent link">&para;</a></h2>
+<p>The Wright–Fisher model is a <strong>discrete-time stochastic population model</strong> that describes how allele frequencies change across generations due to <strong>random sampling of gametes</strong> in a finite population.</p>
+<p>It provides the <strong>canonical mathematical foundation</strong> for genetic drift.</p>
+<blockquote>
+<p>Genetic drift is the phenomenon;<br />
+the Wright–Fisher model is the formal mechanism.</p>
+</blockquote>
+<hr />
+<h2 id="2-core-assumptions">2. Core assumptions<a class="headerlink" href="#2-core-assumptions" title="Permanent link">&para;</a></h2>
+<p>The classical Wright–Fisher model assumes:</p>
+<ol>
+<li>
+<p><strong>Finite population size</strong></p>
+<ul>
+<li>
+<p>Diploid population of constant size ( <span class="arithmatex">\(N\)</span> )</p>
+</li>
+<li>
+<p>Total number of gene copies: ( <span class="arithmatex">\(2N\)</span> )</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Non-overlapping generations</strong></p>
+<ul>
+<li>Entire population is replaced each generation</li>
+</ul>
+</li>
+<li>
+<p><strong>Random mating</strong></p>
+<ul>
+<li>
+<p>No population structure</p>
+</li>
+<li>
+<p>No assortative mating</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>No selection, mutation, or migration</strong></p>
+<ul>
+<li>
+<p>All alleles are selectively neutral</p>
+</li>
+<li>
+<p>Allele frequency changes are purely stochastic</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Sampling with replacement</strong></p>
+<ul>
+<li>Each new gene copy is drawn independently from the parental generation</li>
+</ul>
+</li>
+</ol>
+<p>These assumptions define a <strong>minimal neutral model</strong>.</p>
+<hr />
+<h2 id="3-state-variable">3. State variable<a class="headerlink" href="#3-state-variable" title="Permanent link">&para;</a></h2>
+<p>Let:</p>
+<ul>
+<li>( <span class="arithmatex">\(p_t\)</span> ): frequency of allele ( <span class="arithmatex">\(A\)</span> ) at generation ( <span class="arithmatex">\(t\)</span> )</li>
+</ul>
+<p>The <strong>state space</strong> is:</p>
+<div class="arithmatex">\[
+p_t \in \{ 0, \frac{1}{2N}, \frac{2}{2N}, \dots, 1 \}  
+\]</div>
+<p>This discreteness is fundamental.</p>
+<hr />
+<h2 id="4-transition-rule-binomial-sampling">4. Transition rule (binomial sampling)<a class="headerlink" href="#4-transition-rule-binomial-sampling" title="Permanent link">&para;</a></h2>
+<p>Given allele frequency ( <span class="arithmatex">\(p_t\)</span> ), the number of ( <span class="arithmatex">\(A\)</span> ) alleles in the next generation follows:</p>
+<div class="arithmatex">\[  
+X_{t+1} \sim \mathrm{Binomial}(2N, p_t)  
+\]</div>
+<p>and therefore:</p>
+<div class="arithmatex">\[
+p_{t+1} = \frac{X_{t+1}}{2N}  
+\]</div>
+<p>This single equation <strong>fully defines the Wright–Fisher process</strong>.</p>
+<hr />
+<h2 id="5-expectation-and-variance">5. Expectation and variance<a class="headerlink" href="#5-expectation-and-variance" title="Permanent link">&para;</a></h2>
+<h3 id="expectation">Expectation<a class="headerlink" href="#expectation" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\mathbb{E}[p_{t+1} \mid p_t] = p_t  
+\]</div>
+<p>➡️ Drift does <strong>not</strong> bias allele frequency on average.</p>
+<hr />
+<h3 id="variance">Variance<a class="headerlink" href="#variance" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[  
+\mathrm{Var}(p_{t+1} \mid p_t) = \frac{p_t(1 - p_t)}{2N}  
+\]</div>
+<p>Key consequences:</p>
+<ul>
+<li>
+<p>Drift strength increases when:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(N\)</span> is small</p>
+</li>
+<li>
+<p><span class="arithmatex">\(p_t\)</span> is intermediate</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Variance goes to zero at  <span class="arithmatex">\(p = 0\)</span> and  <span class="arithmatex">\(p = 1\)</span></p>
+</li>
+</ul>
+<hr />
+<h2 id="6-absorbing-boundaries-and-fixation">6. Absorbing boundaries and fixation<a class="headerlink" href="#6-absorbing-boundaries-and-fixation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><span class="arithmatex">\(p = 0\)</span> : loss of allele <span class="arithmatex">\(A\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(p = 1\)</span>: fixation of allele <span class="arithmatex">\(A\)</span></p>
+</li>
+</ul>
+<p>These are <strong>absorbing states</strong>:</p>
+<div class="arithmatex">\[
+p_t = 0 \Rightarrow p_{t+k} = 0 \quad \forall k &gt; 0  
+\]</div>
+<p>Under pure drift:</p>
+<ul>
+<li>
+<p>Fixation is inevitable</p>
+</li>
+<li>
+<p>Which allele fixes is random</p>
+</li>
+</ul>
+<hr />
+<h2 id="7-fixation-probability">7. Fixation probability<a class="headerlink" href="#7-fixation-probability" title="Permanent link">&para;</a></h2>
+<p>For a neutral allele:</p>
+<div class="arithmatex">\[
+\Pr(\text{fixation} \mid p_0) = p_0  
+\]</div>
+<p>In particular:</p>
+<ul>
+<li>
+<p>A new mutation appears at frequency ( <span class="arithmatex">\(\frac{1}{2N}\)</span> )</p>
+</li>
+<li>
+<p>Fixation probability:</p>
+</li>
+</ul>
+<div class="arithmatex">\[
+\Pr(\text{fixation}) = \frac{1}{2N}  
+\]</div>
+<p>This result is <strong>one of the most important in population genetics</strong>.</p>
+<hr />
+<h2 id="8-time-to-fixation-order-of-magnitude">8. Time to fixation (order of magnitude)<a class="headerlink" href="#8-time-to-fixation-order-of-magnitude" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Expected time to fixation or loss:<br />
+    $$
+    \mathcal{O}(N)<br />
+    $$</p>
+</li>
+<li>
+<p>Conditioning on fixation:<br />
+    $$
+    \mathcal{O}(4N)<br />
+    $$</p>
+</li>
+</ul>
+<p>Drift is <strong>slow in large populations, fast in small ones</strong>.</p>
+<hr />
+<h2 id="9-relation-to-genetic-drift">9. Relation to genetic drift<a class="headerlink" href="#9-relation-to-genetic-drift" title="Permanent link">&para;</a></h2>
+<p>Genetic drift is:</p>
+<blockquote>
+<p>The stochastic change in allele frequency caused by finite population sampling.</p>
+</blockquote>
+<p>The Wright–Fisher model shows that drift is:</p>
+<ul>
+<li>
+<p>Unbiased in expectation</p>
+</li>
+<li>
+<p>Inevitable in finite populations</p>
+</li>
+<li>
+<p>Strongly dependent on population size</p>
+</li>
+</ul>
+<hr />
+<h2 id="10-from-wrightfisher-to-diffusion-approximation">10. From Wright–Fisher to diffusion approximation<a class="headerlink" href="#10-from-wrightfisher-to-diffusion-approximation" title="Permanent link">&para;</a></h2>
+<p>Taking the limit:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(N \to \infty\)</span></p>
+</li>
+<li>
+<p>Small changes per generation</p>
+</li>
+</ul>
+<p>leads to the <strong>diffusion approximation</strong>:</p>
+<div class="arithmatex">\[ 
+dp = \sqrt{\frac{p(1-p)}{2N}} \, dW_t  
+\]</div>
+<p>This connects Wright–Fisher to:</p>
+<ul>
+<li>
+<p>Stochastic differential equations</p>
+</li>
+<li>
+<p>Fokker–Planck equations</p>
+</li>
+<li>
+<p>Continuous-time allele frequency dynamics</p>
+</li>
+</ul>
+<hr />
+<h2 id="11-position-in-the-dynamics-framework">11. Position in the dynamics framework<a class="headerlink" href="#11-position-in-the-dynamics-framework" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Genetic drift</td>
+<td>Evolutionary phenomenon</td>
+</tr>
+<tr>
+<td>Wright–Fisher model</td>
+<td>Discrete stochastic model</td>
+</tr>
+<tr>
+<td>Diffusion approximation</td>
+<td>Continuous limit</td>
+</tr>
+<tr>
+<td>Coalescent theory</td>
+<td>Backward-time dual</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="12-what-the-wrightfisher-model-does-not-include">12. What the Wright–Fisher model does <em>not</em> include<a class="headerlink" href="#12-what-the-wrightfisher-model-does-not-include" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Selection → added via biased sampling</p>
+</li>
+<li>
+<p>Mutation → added via mutation matrices</p>
+</li>
+<li>
+<p>Migration → added via structured populations</p>
+</li>
+<li>
+<p>Linkage → single-locus only</p>
+</li>
+</ul>
+<p>These extensions define <strong>new models</strong>, not modifications of the core.</p>
+<hr />
+<h2 id="13-conceptual-summary">13. Conceptual summary<a class="headerlink" href="#13-conceptual-summary" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>The Wright–Fisher model is the simplest mathematically complete description of evolution under randomness alone.</p>
+</blockquote>
+<p>It is the <strong>probabilistic backbone</strong> underlying:</p>
+<ul>
+<li>
+<p>Genetic drift</p>
+</li>
+<li>
+<p>Neutral theory</p>
+</li>
+<li>
+<p>Diffusion theory</p>
+</li>
+<li>
+<p>Coalescent theory</p>
+</li>
+<li>
+<p>GWAS kinship modeling (via covariance structure)</p>
+</li>
+</ul>
+<hr />
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>[[Genetic drift]]</p>
+</li>
+<li>
+<p>[[Allele_frequency]]</p>
+</li>
+<li>
+<p>[[Diffusion_approximation]]</p>
+</li>
+<li>
+<p>[[Coalescent_theory]]</p>
+</li>
+<li>
+<p>[[Site_frequency_spectrum]]</p>
+</li>
+<li>
+<p>[[GWAS_K_matrix]]</p>
+</li>
+</ul>
+<hr />
+<p>因为在 <strong>Wright–Fisher 模型</strong>里，给定上一代等位基因频率 (p_t)，下一代中该等位基因的拷贝数 (K_{t+1}) 被建模为一个<strong>二项分布</strong>：</p>
+<div class="arithmatex">\[
+K_{t+1}\mid p_t \sim \mathrm{Bin}(2N,\; p_t).  
+\]</div>
+<p>这里的含义是：</p>
+<ul>
+<li>
+<p>群体为二倍体、大小固定为 (N)，所以下一代总共有 (2N) 条等位基因拷贝；</p>
+</li>
+<li>
+<p>形成下一代时，相当于从上一代的等位基因库中 <strong>独立地抽取 (2N) 次</strong>（随机配子抽样）；</p>
+</li>
+<li>
+<p>每次抽到目标等位基因（比如 (A)）的概率就是当前频率 (p_t)。</p>
+</li>
+</ul>
+<hr />
+<h2 id="mathbbek_t1mid-p_t2n-p_t">为什么 <span class="arithmatex">\(\mathbb{E}[K_{t+1}\mid p_t]=2N p_t\)</span>？<a class="headerlink" href="#mathbbek_t1mid-p_t2n-p_t" title="Permanent link">&para;</a></h2>
+<p>二项分布的一个基本性质：若 (X\sim \mathrm{Bin}(n,p))，则</p>
+<div class="arithmatex">\[
+\mathbb{E}[X]=np.  
+\]</div>
+<p>你也可以用“指示变量”从头推一遍（更直观）：</p>
+<p>令<br />
+$$
+I_i=<br />
+\begin{cases}<br />
+1,\text{第 }i\text{ 次抽样抽到目标等位基因}\<br />
+0,\text{否则}<br />
+\end{cases}<br />
+ $$
+那么<br />
+$$
+K_{t+1}=\sum_{i=1}^{2N} I_i.<br />
+$$</p>
+<p>在给定 <span class="arithmatex">\(p_t\)</span>的条件下，每次抽到目标等位基因的概率是<span class="arithmatex">\(p_t\)</span>，所以
+$$
+\mathbb{E}[I_i\mid p_t]=1\cdot p_t+0\cdot (1-p_t)=p_t.<br />
+$$</p>
+<p>利用期望的线性性（不需要独立性也成立）：
+$$
+\mathbb{E}[K_{t+1}\mid p_t]<br />
+=\mathbb{E}!\left[\sum_{i=1}^{2N} I_i ,\middle|, p_t\right]<br />
+=\sum_{i=1}^{2N} \mathbb{E}[I_i\mid p_t]<br />
+=\sum_{i=1}^{2N} p_t<br />
+=2N p_t.<br />
+$$</p>
+<hr />
+<h2 id="mathbbep_t1mid-p_tp_t">顺带一提：这一步马上推出 $<span class="arithmatex">\(\mathbb{E}[p_{t+1}\mid p_t]=p_t\)</span>$<a class="headerlink" href="#mathbbep_t1mid-p_tp_t" title="Permanent link">&para;</a></h2>
+<p>因为 $<span class="arithmatex">\(p_{t+1}=K_{t+1}/(2N)\)</span>$：</p>
+<div class="arithmatex">\[
+\mathbb{E}[p_{t+1}\mid p_t]  
+=\mathbb{E}!\left[\frac{K_{t+1}}{2N}\middle|p_t\right]  
+=\frac{1}{2N}\mathbb{E}[K_{t+1}\mid p_t]  
+=\frac{1}{2N}\cdot 2N p_t  
+=p_t.  
+\]</div>
+<p>这句话的直觉是：<strong>纯漂变在平均意义上不改变等位基因频率</strong>（但方差不为 0，所以会随机波动并最终吸收在 0 或 1）。</p>
+<p>如果你愿意，我也可以紧接着用同样思路把<br />
+(\mathrm{Var}(K_{t+1}\mid p_t)) 和 (\mathrm{Var}(p_{t+1}\mid p_t)) 完整推出来，并解释边界 (p=0,1) 的“吸收态”含义。</p>
+<p>好，接着把 <strong>(\mathrm{Var}(p_{t+1}\mid p_t))</strong> 推出来，并把边界 (p=0,1) 讲清楚（这正是后面 diffusion approximation 的核心输入）。</p>
+<hr />
+<h2 id="1-wrightfisher">1) 仍从 Wright–Fisher 的抽样假设出发<a class="headerlink" href="#1-wrightfisher" title="Permanent link">&para;</a></h2>
+<p><strong>假设（Wright–Fisher drift 部分）</strong></p>
+<ul>
+<li>
+<p>二倍体、群体大小恒定 (N)，每代共有 (2N) 份等位基因拷贝。</p>
+</li>
+<li>
+<p>下一代的 (2N) 份拷贝来自上一代的<strong>随机配子抽样</strong>：每次抽到目标等位基因（记为 (A)）的概率是当前频率 (p_t)。</p>
+</li>
+<li>
+<p>因此<br />
+    [<br />
+    K_{t+1}\mid p_t \sim \mathrm{Bin}(2N,,p_t),<br />
+    \qquad<br />
+    p_{t+1}=\frac{K_{t+1}}{2N}.<br />
+    ]</p>
+</li>
+</ul>
+<p>你上一条已经得到<br />
+[<br />
+\mathbb{E}[K_{t+1}\mid p_t]=2N p_t<br />
+\quad\Rightarrow\quad<br />
+\mathbb{E}[p_{t+1}\mid p_t]=p_t.<br />
+]</p>
+<hr />
+<h2 id="2-mathrmvark_t1mid-p_t">2) 推导 (\mathrm{Var}(K_{t+1}\mid p_t))<a class="headerlink" href="#2-mathrmvark_t1mid-p_t" title="Permanent link">&para;</a></h2>
+<p>二项分布的性质：若 (X\sim \mathrm{Bin}(n,p))，则<br />
+[<br />
+\mathrm{Var}(X)=np(1-p).<br />
+]</p>
+<p>所以直接得：<br />
+[<br />
+\mathrm{Var}(K_{t+1}\mid p_t)=2N,p_t(1-p_t).<br />
+]</p>
+<p>如果你想“从头推”也可以用指示变量法（更扎实）：</p>
+<ul>
+<li>
+<p>令 (I_i) 为第 (i) 次抽样是否抽到 (A)，则 (I_i\mid p_t\sim \mathrm{Bernoulli}(p_t))。</p>
+</li>
+<li>
+<p>(K_{t+1}=\sum_{i=1}^{2N} I_i)。</p>
+</li>
+<li>
+<p>(\mathrm{Var}(I_i\mid p_t)=p_t(1-p_t))。</p>
+</li>
+<li>
+<p>在 Wright–Fisher 的独立抽样假设下，(\mathrm{Cov}(I_i,I_j\mid p_t)=0)（(i\neq j)）。<br />
+    于是<br />
+    [<br />
+    \mathrm{Var}(K_{t+1}\mid p_t)<br />
+    =\sum_{i=1}^{2N}\mathrm{Var}(I_i\mid p_t)<br />
+    =2N,p_t(1-p_t).<br />
+    ]</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-mathrmvarp_t1mid-p_t">3) 推导 (\mathrm{Var}(p_{t+1}\mid p_t))<a class="headerlink" href="#3-mathrmvarp_t1mid-p_t" title="Permanent link">&para;</a></h2>
+<p>因为 (p_{t+1}=K_{t+1}/(2N))，用方差的缩放性质 (\mathrm{Var}(aX)=a^2\mathrm{Var}(X))：</p>
+<p>[<br />
+\mathrm{Var}(p_{t+1}\mid p_t)<br />
+=\mathrm{Var}!\left(\frac{K_{t+1}}{2N}\middle|p_t\right)<br />
+=\frac{1}{(2N)^2}\mathrm{Var}(K_{t+1}\mid p_t)<br />
+=\frac{1}{(2N)^2}\cdot 2N p_t(1-p_t)<br />
+=\frac{p_t(1-p_t)}{2N}.<br />
+]</p>
+<p>这就是漂变一步的“噪声强度”，后面做 diffusion approximation 时会变成扩散项系数。</p>
+<hr />
+<h2 id="4-p01">4) 边界 (p=0,1) 的含义（为什么重要）<a class="headerlink" href="#4-p01" title="Permanent link">&para;</a></h2>
+<p>在 Wright–Fisher 里：</p>
+<ul>
+<li>
+<p>若 (p_t=0)，表示 (A) 在群体里 <strong>已经没有拷贝</strong>。此时<br />
+    [<br />
+    K_{t+1}\mid p_t=0 \sim \mathrm{Bin}(2N,0)\Rightarrow K_{t+1}=0 \text{（必然）}<br />
+    ]<br />
+    所以 (p_{t+1}=0)。这叫 <strong>吸收态 (absorbing boundary)</strong>：一旦丢失就不会靠漂变“自己回来”。</p>
+</li>
+<li>
+<p>若 (p_t=1)，表示群体里 <strong>全是 (A)</strong>。此时<br />
+    [<br />
+    K_{t+1}\mid p_t=1 \sim \mathrm{Bin}(2N,1)\Rightarrow K_{t+1}=2N \text{（必然）}<br />
+    ]<br />
+    所以 (p_{t+1}=1)。同样是吸收态：一旦固定也不会靠漂变“自己掉下去”。</p>
+</li>
+</ul>
+<p>并且注意：在边界处方差也为 0：<br />
+[<br />
+\mathrm{Var}(p_{t+1}\mid p_t)=\frac{p_t(1-p_t)}{2N}<br />
+]<br />
+当 (p_t=0) 或 (1) 时，(,p_t(1-p_t)=0)，随机波动消失——完全符合“吸收”的直觉。</p>
+<hr />
+<h2 id="5-diffusion">5) 一句总结（把这步和 diffusion 接上）<a class="headerlink" href="#5-diffusion" title="Permanent link">&para;</a></h2>
+<p>你现在已经有了 drift 的两件关键东西：</p>
+<p>[<br />
+\mathbb{E}[p_{t+1}-p_t\mid p_t]=0,<br />
+\qquad<br />
+\mathrm{Var}(p_{t+1}-p_t\mid p_t)=\frac{p_t(1-p_t)}{2N}.<br />
+]</p>
+<p>后面做 diffusion approximation 时，第一条对应 <strong>漂移项（drift term）=0</strong>（纯中性漂变），第二条对应 <strong>扩散项（diffusion term）(\propto p(1-p))</strong>，并且边界 (0,1) 仍然是吸收边界（除非你加入突变/迁移等机制）。</p>
+<hr />
+<p>如果你愿意，我们下一步就顺势进入 diffusion：把离散时间的<br />
+(\Delta p = p_{t+1}-p_t) 做尺度变换（比如时间按 (2N) 缩放），写出对应的 SDE / Fokker–Planck 方程，并解释为什么扩散系数是 (p(1-p))。你想走 <strong>SDE 路线</strong> 还是 <strong>Fokker–Planck 路线</strong>？（我可以按你选的那条直接推，不用你再补背景。）</p>
+<p>下面我把这两条 <strong>从 Wright–Fisher 的定义开始</strong>，一步不跳地推到你写的结果：</p>
+<p>[<br />
+\mathbb{E}[p_{t+1}-p_t\mid p_t]=0,\qquad<br />
+\mathrm{Var}(p_{t+1}-p_t\mid p_t)=\frac{p_t(1-p_t)}{2N}.<br />
+]</p>
+<hr />
+<h2 id="0">0) 模型设定与符号<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
+<p><strong>Wright–Fisher（仅漂变，中性）假设：</strong></p>
+<ol>
+<li>
+<p>二倍体群体，成体大小固定为 (N)，所以每代有 <strong>(2N)</strong> 份等位基因拷贝。</p>
+</li>
+<li>
+<p>从第 (t) 代到第 (t+1) 代的形成过程：把第 (t) 代的基因库当作一个“无限混合池”，对下一代的 (2N) 份等位基因拷贝进行<strong>随机抽样</strong>。</p>
+</li>
+<li>
+<p>给定第 (t) 代目标等位基因（记为 (A)）的频率 (p_t)，则每次抽到 (A) 的概率都是 (p_t)，并且（在 WF 的标准版本里）各次抽样独立。</p>
+</li>
+</ol>
+<p>定义：</p>
+<ul>
+<li>
+<p>(K_{t+1})：第 (t+1) 代中 (A) 的拷贝数（在 (2N) 份里有多少份是 (A)）。</p>
+</li>
+<li>
+<p>(p_{t+1} := \dfrac{K_{t+1}}{2N})。</p>
+</li>
+</ul>
+<p>于是（关键一步）：</p>
+<p>[<br />
+K_{t+1}\mid p_t \sim \mathrm{Bin}(2N,;p_t).<br />
+]</p>
+<hr />
+<h2 id="1-mathbbep_t1mid-p_t">1) 先推 (\mathbb{E}[p_{t+1}\mid p_t])<a class="headerlink" href="#1-mathbbep_t1mid-p_t" title="Permanent link">&para;</a></h2>
+<h3 id="11-mathbbek_t1mid-p_t">1.1 先推 (\mathbb{E}[K_{t+1}\mid p_t])（指示变量法）<a class="headerlink" href="#11-mathbbek_t1mid-p_t" title="Permanent link">&para;</a></h3>
+<p>令第 (i) 次抽样的指示变量：</p>
+<p>[<br />
+I_i=<br />
+\begin{cases}<br />
+1, &amp; \text{第 } i \text{ 次抽到 } A\<br />
+0, &amp; \text{否则}<br />
+\end{cases}<br />
+\qquad i=1,\dots,2N<br />
+]</p>
+<p>那么</p>
+<p>[<br />
+K_{t+1}=\sum_{i=1}^{2N} I_i.<br />
+]</p>
+<p>在给定 (p_t) 的条件下，<br />
+[<br />
+\mathbb{P}(I_i=1\mid p_t)=p_t,\quad \mathbb{P}(I_i=0\mid p_t)=1-p_t,<br />
+]<br />
+所以</p>
+<p>[<br />
+\mathbb{E}[I_i\mid p_t]=1\cdot p_t+0\cdot(1-p_t)=p_t.<br />
+]</p>
+<p>用期望线性性（这一步<strong>不需要独立性</strong>）：</p>
+<p>[<br />
+\mathbb{E}[K_{t+1}\mid p_t]<br />
+=\mathbb{E}!\left[\sum_{i=1}^{2N} I_i ,\middle|, p_t\right]<br />
+=\sum_{i=1}^{2N}\mathbb{E}[I_i\mid p_t]<br />
+=\sum_{i=1}^{2N} p_t<br />
+=2N p_t.<br />
+]</p>
+<h3 id="12-mathbbep_t1mid-p_t">1.2 再得到 (\mathbb{E}[p_{t+1}\mid p_t])<a class="headerlink" href="#12-mathbbep_t1mid-p_t" title="Permanent link">&para;</a></h3>
+<p>[<br />
+p_{t+1}=\frac{K_{t+1}}{2N}<br />
+\Rightarrow<br />
+\mathbb{E}[p_{t+1}\mid p_t]<br />
+=\mathbb{E}!\left[\frac{K_{t+1}}{2N}\middle|p_t\right]<br />
+=\frac{1}{2N}\mathbb{E}[K_{t+1}\mid p_t]<br />
+=\frac{1}{2N}\cdot 2N p_t<br />
+=p_t.<br />
+]</p>
+<hr />
+<h2 id="2-mathbbep_t1-p_tmid-p_t0">2) 推 (\mathbb{E}[p_{t+1}-p_t\mid p_t]=0)<a class="headerlink" href="#2-mathbbep_t1-p_tmid-p_t0" title="Permanent link">&para;</a></h2>
+<p>这一步其实是上面结果的直接推论，因为 (p_t) 在条件里是常数：</p>
+<p>[<br />
+\mathbb{E}[p_{t+1}-p_t\mid p_t]<br />
+=\mathbb{E}[p_{t+1}\mid p_t]-p_t<br />
+=p_t-p_t<br />
+=0.<br />
+]</p>
+<blockquote>
+<p>直觉：<strong>纯漂变不会在平均意义上推动频率上升或下降</strong>；它只带来随机波动。</p>
+</blockquote>
+<hr />
+<h2 id="3-mathrmvarp_t1-p_tmid-p_tdfracp_t1-p_t2n">3) 推 (\mathrm{Var}(p_{t+1}-p_t\mid p_t)=\dfrac{p_t(1-p_t)}{2N})<a class="headerlink" href="#3-mathrmvarp_t1-p_tmid-p_tdfracp_t1-p_t2n" title="Permanent link">&para;</a></h2>
+<p>我们分两步：先算 (\mathrm{Var}(p_{t+1}\mid p_t))，再变成增量的方差。</p>
+<h3 id="31-mathrmvark_t1mid-p_t">3.1 先算 (\mathrm{Var}(K_{t+1}\mid p_t))<a class="headerlink" href="#31-mathrmvark_t1mid-p_t" title="Permanent link">&para;</a></h3>
+<p>仍用指示变量法，并用到 WF 的独立抽样假设（这一步需要独立性来让协方差为 0）：</p>
+<p>[<br />
+K_{t+1}=\sum_{i=1}^{2N} I_i.<br />
+]</p>
+<p>给定 (p_t)，(I_i\sim \mathrm{Bernoulli}(p_t))，所以</p>
+<p>[<br />
+\mathrm{Var}(I_i\mid p_t)=p_t(1-p_t).<br />
+]</p>
+<p>并且在标准 WF 中 (I_i) 相互独立，因此 (i\neq j) 时<br />
+[<br />
+\mathrm{Cov}(I_i,I_j\mid p_t)=0.<br />
+]</p>
+<p>于是</p>
+<p>[<br />
+\mathrm{Var}(K_{t+1}\mid p_t)<br />
+=\mathrm{Var}!\left(\sum_{i=1}^{2N} I_i \middle| p_t\right)<br />
+=\sum_{i=1}^{2N}\mathrm{Var}(I_i\mid p_t)<br />
++2\sum_{i&lt;j}\mathrm{Cov}(I_i,I_j\mid p_t)<br />
+]</p>
+<p>协方差项为 0，得到</p>
+<p>[<br />
+\mathrm{Var}(K_{t+1}\mid p_t)<br />
+=2N\cdot p_t(1-p_t).<br />
+]</p>
+<p>（这也等价于二项分布 (\mathrm{Bin}(2N,p_t)) 的方差公式。）</p>
+<h3 id="32-mathrmvarp_t1mid-p_t">3.2 再算 (\mathrm{Var}(p_{t+1}\mid p_t))<a class="headerlink" href="#32-mathrmvarp_t1mid-p_t" title="Permanent link">&para;</a></h3>
+<p>因为 (p_{t+1}=K_{t+1}/(2N))，用缩放性质 (\mathrm{Var}(aX)=a^2\mathrm{Var}(X))：</p>
+<p>[<br />
+\mathrm{Var}(p_{t+1}\mid p_t)<br />
+=\mathrm{Var}!\left(\frac{K_{t+1}}{2N}\middle|p_t\right)<br />
+=\frac{1}{(2N)^2}\mathrm{Var}(K_{t+1}\mid p_t)<br />
+=\frac{1}{(2N)^2}\cdot 2N p_t(1-p_t)<br />
+=\frac{p_t(1-p_t)}{2N}.<br />
+]</p>
+<h3 id="33">3.3 最后变成增量的方差<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p>注意：在条件 (p_t) 下，(p_t) 自身是常数，所以</p>
+<p>[<br />
+\mathrm{Var}(p_{t+1}-p_t\mid p_t)<br />
+=\mathrm{Var}(p_{t+1}\mid p_t)<br />
+]</p>
+<p>理由是：对任何常数 (c)，(\mathrm{Var}(X-c)=\mathrm{Var}(X))。</p>
+<p>所以直接得到</p>
+<p>[<br />
+\mathrm{Var}(p_{t+1}-p_t\mid p_t)=\frac{p_t(1-p_t)}{2N}.<br />
+]</p>
+<hr />
+<h2 id="4-diffusion">4) 你现在得到的两条在 diffusion 里怎么用（先给你一个定位）<a class="headerlink" href="#4-diffusion" title="Permanent link">&para;</a></h2>
+<p>把 (\Delta p_t:=p_{t+1}-p_t)，那么：</p>
+<ul>
+<li>
+<p>(\mathbb{E}[\Delta p_t\mid p_t]=0) → 漂移项（drift term）为 0（中性）</p>
+</li>
+<li>
+<p>(\mathrm{Var}(\Delta p_t\mid p_t)=\dfrac{p_t(1-p_t)}{2N}) → 扩散强度随 (p(1-p)) 变（边界处为 0）</p>
+</li>
+</ul>
+<hr />
+<p>下面我用<strong>严格的量级（big-O）公式</strong>把两件事讲清楚：</p>
+<ol>
+<li>
+<p>为什么 (N) 大时 WF 单代漂变弱；</p>
+</li>
+<li>
+<p>为什么要把时间缩放成 (\tau=t/(2N))。</p>
+</li>
+</ol>
+<hr />
+<h2 id="1-n-wf">1) 为什么 (N) 很大时，WF 的单代漂变“很弱”？<a class="headerlink" href="#1-n-wf" title="Permanent link">&para;</a></h2>
+<p>在中性 WF 下（给定 (p_t)）我们已经有：</p>
+<p>[<br />
+\mathbb{E}[\Delta p_t\mid p_t]=0,\qquad<br />
+\mathrm{Var}(\Delta p_t\mid p_t)=\frac{p_t(1-p_t)}{2N},<br />
+]<br />
+其中 (\Delta p_t:=p_{t+1}-p_t)。</p>
+<h3 id="11">1.1 用方差量级说明“每代波动很小”<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>因为 (0\le p_t(1-p_t)\le \tfrac14)，所以</p>
+<p>[<br />
+\mathrm{Var}(\Delta p_t\mid p_t)\le \frac{1}{8N}=O!\left(\frac{1}{N}\right).<br />
+]</p>
+<p>更直观地看“典型步长”（标准差）：</p>
+<p>[<br />
+\mathrm{SD}(\Delta p_t\mid p_t)=\sqrt{\mathrm{Var}(\Delta p_t\mid p_t)}<br />
+=\sqrt{\frac{p_t(1-p_t)}{2N}}<br />
+=O!\left(\frac{1}{\sqrt{N}}\right).<br />
+]</p>
+<p>这句话就是：<strong>单代频率变化的典型规模是 (1/\sqrt{N})</strong>，所以 (N) 越大，每代变化越小，漂变越“弱”。</p>
+<blockquote>
+<p>你要的 (O(1/N)) 也出现了：是<strong>方差</strong>（二阶矩）量级；而“幅度”是方差开根号，量级是 (O(1/\sqrt{N}))。</p>
+</blockquote>
+<hr />
+<h2 id="2-taut2n-t">2) 为什么要用 (\tau=t/(2N)) 这种尺度，而不是直接用 (t)？<a class="headerlink" href="#2-taut2n-t" title="Permanent link">&para;</a></h2>
+<p>核心理由：<strong>如果不缩放时间，(N\to\infty) 时过程会退化成“几乎不动”；缩放后才能得到非平凡极限（扩散过程）</strong>。</p>
+<h3 id="21-t-ntoinfty">2.1 看累计波动：固定 (t) 时，(N\to\infty) 变化会消失<a class="headerlink" href="#21-t-ntoinfty" title="Permanent link">&para;</a></h3>
+<p>考虑 (t) 代后的累计变化<br />
+[<br />
+p_t-p_0=\sum_{k=0}^{t-1}\Delta p_k.<br />
+]</p>
+<p>粗略但关键的量级计算：每一代 (\Delta p_k) 的方差是 (O(1/N))，那么 (t) 代累计方差大约是</p>
+<p>[<br />
+\mathrm{Var}(p_t-p_0)\approx \sum_{k=0}^{t-1} O!\left(\frac{1}{N}\right)<br />
+= O!\left(\frac{t}{N}\right).<br />
+]</p>
+<p>如果你把 (t) 当成“常数”（不随 (N) 增长），那</p>
+<p>[<br />
+\mathrm{Var}(p_t-p_0)=O!\left(\frac{1}{N}\right)\xrightarrow[N\to\infty]{}0.<br />
+]</p>
+<p>也就是：<strong>在固定代数尺度上，群体越大，频率轨迹越接近常数</strong>（漂变被“压扁”了）。这就是为什么不能直接用 (t) 来取极限：极限会变得无聊。</p>
+<hr />
+<h3 id="22-t-n">2.2 让极限“有东西发生”：需要让 (t) 与 (N) 同阶<a class="headerlink" href="#22-t-n" title="Permanent link">&para;</a></h3>
+<p>要让累计波动保持 (O(1))（既不爆炸也不消失），我们希望</p>
+<p>[<br />
+\mathrm{Var}(p_t-p_0)\sim O(1).<br />
+]</p>
+<p>由上面的量级 (O(t/N))，这要求</p>
+<p>[<br />
+\frac{t}{N}=O(1)\quad \Longrightarrow\quad t=O(N).<br />
+]</p>
+<p>WF 里自然出现的常数是 (2N)（因为二倍体有 (2N) 拷贝，并且方差里就是 (2N)），所以我们令</p>
+<p>[<br />
+t = 2N\tau \quad\Longleftrightarrow\quad \tau=\frac{t}{2N}.<br />
+]</p>
+<p>把这个代回累计方差的量级：</p>
+<p>[<br />
+\mathrm{Var}(p_{2N\tau}-p_0)\approx O!\left(\frac{2N\tau}{N}\right)=O(\tau),<br />
+]</p>
+<p>这就完美了：<strong>在 (\tau) 尺度上，波动不会因为 (N\to\infty) 而消失</strong>，于是才可能收敛到一个非退化的 diffusion。</p>
+<hr />
+<h3 id="23-tau-2n">2.3 再用“每单位 (\tau) 的方差增量”解释为什么是 (2N)<a class="headerlink" href="#23-tau-2n" title="Permanent link">&para;</a></h3>
+<p>1 代对应的 (\tau) 增量是<br />
+[<br />
+\Delta\tau = \frac{1}{2N}.<br />
+]</p>
+<p>我们已经有单代<br />
+[<br />
+\mathrm{Var}(\Delta p_t\mid p_t)=\frac{p_t(1-p_t)}{2N}.<br />
+]</p>
+<p>于是“每单位 (\tau)”的方差增长率（把方差除以时间步长）是</p>
+<h1 id="_1">[<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>\frac{\mathrm{Var}(\Delta p_t\mid p_t)}{\Delta\tau}</p>
+<p>\frac{\frac{p_t(1-p_t)}{2N}}{\frac{1}{2N}}<br />
+= p_t(1-p_t),<br />
+]</p>
+<p>这是一个 <strong>(O(1))</strong> 的量，不依赖 (N)。这正是你希望在极限里留下来的扩散系数。</p>
+<p>如果你不用 (\tau=t/(2N))，而用 (\tau=t/N) 或 (\tau=t)，这个“方差增长率”要么多一个常数因子（还好但不标准），要么趋于 0（退化），所以传统上用 (2N) 来把系数写得最干净。</p>
+<hr />
+<h2 id="_2">你可以记成两句“硬逻辑链”<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>单代漂变的二阶矩：<br />
+    [<br />
+    \mathrm{Var}(\Delta p\mid p)=\frac{p(1-p)}{2N}=O!\left(\frac{1}{N}\right)<br />
+    \Rightarrow \Delta p = O!\left(\frac{1}{\sqrt{N}}\right).<br />
+    ]</p>
+</li>
+<li>
+<p>(t) 代累计波动：<br />
+    [<br />
+    \mathrm{Var}(p_t-p_0)\approx O!\left(\frac{t}{N}\right)<br />
+    \Rightarrow t \text{ 必须取 } O(N) \text{ 才有非平凡极限}<br />
+    \Rightarrow \tau=\frac{t}{2N}.<br />
+    ]</p>
+</li>
+</ul>
+<hr />
+<p>如果你接下来要把它推进到 diffusion，我可以直接把这套量级推导变成标准形式：<br />
+用 (\tau=t/(2N)) 定义插值过程 (p^{(N)}(\tau))，然后写出它的 infinitesimal mean/variance（生成元），最后得到 Fokker–Planck 或 SDE。你想先看 <strong>生成元（generator）</strong> 的推法，还是直接从 <strong>SDE</strong> 写起？</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
