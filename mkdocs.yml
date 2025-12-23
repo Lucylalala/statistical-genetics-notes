@@ -1,6 +1,12 @@
 site_name: Statistical Genetics Notes
-site_description: Notes on population and quantitative genetics
+site_description: Notes on population genetics and quantitative genetics
 site_author: Lucylalala
+
+
+plugins:
+  - search
+  - awesome-pages
+  - roamlinks
 
 theme:
   name: material
@@ -11,6 +17,48 @@ theme:
     - toc.integrate
     - content.code.copy
     - search.highlight
+
+nav:
+  - Home: index.md
+
+  - Meta:
+      - What is statistical genetics?: 00_Meta/What_is_statistical_genetics_about.md
+
+  - Core concepts:
+      - Single locus:
+          - Allele frequency: 01_Core/00_single_locus/Allele_frequency.md
+          - Hardy–Weinberg equilibrium: 01_Core/00_single_locus/Hardy_Weinberg_equilibrium.md
+      - Structural state:
+          - Linkage disequilibrium: 01_Core/02_Structual_state/Linkage_disequilibrium.md
+          - Population structure: 01_Core/02_Structual_state/Population_structure.md
+      - Dynamics:
+          - Frequency dynamics: 01_Core/Frequency dynamics.md
+          - Variance dynamics: 01_Core/Variance dynamics.md
+
+  - Evolutionary processes:
+      - Genetic drift: 02_Processes/Genetic drift.md
+      - Mutation: 02_Processes/Mutation.md
+      - Migration: 02_Processes/Migration.md
+      - Selection:
+          - Overview: 02_Processes/Selection/Selection(general).md
+          - Fitness scheme: 02_Processes/Selection/Fitness_scheme.md
+          - Dominance selection: 02_Processes/Selection/Dominance_selection.md
+          - Overdominance: 02_Processes/Selection/Overdominance.md
+          - Underdominance: 02_Processes/Selection/Underdominace.md
+          - Balancing selection: 02_Processes/Selection/Balancing_selection.md
+          - Mutation–selection balance: 02_Processes/Selection/Mutation_selection_balance.md
+          - Continuous selection: 02_Processes/Selection/Selection_continuous.md
+
+  - Models:
+      - Wright–Fisher model: 03_Models/Wright_Fisher_model.md
+      - Diffusion approximation: 03_Models/Diffusion_approximation.md
+      - Coalescent theory: 03_Models/Coalescent_theory.md
+      - Site frequency spectrum: 03_Models/Site_frequency_spectrum.md
+      - Background selection: 03_Models/Background_selection.md
+
+  - Statistics:
+      - GWAS K matrix: 04_Statistics/GWAS_K_matrix.md
+      - Speciation: 04_Statistics/Speciation.md
 
 markdown_extensions:
   - pymdownx.arithmatex:

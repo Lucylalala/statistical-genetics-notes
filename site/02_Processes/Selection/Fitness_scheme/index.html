@@ -1,0 +1,2207 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notes on population genetics and quantitative genetics">
+      
+      
+        <meta name="author" content="Lucylalala">
+      
+      
+      
+        <link rel="prev" href="../Selection%28general%29/">
+      
+      
+        <link rel="next" href="../Dominance_selection/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Fitness scheme - Statistical Genetics Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-what-is-a-fitness-scheme" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Statistical Genetics Notes" class="md-header__button md-logo" aria-label="Statistical Genetics Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Statistical Genetics Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fitness scheme
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../00_Meta/What_is_statistical_genetics_about/" class="md-tabs__link">
+          
+  
+  
+  Meta
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../01_Core/00_single_locus/Allele_frequency/" class="md-tabs__link">
+          
+  
+  
+  Core concepts
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../Genetic%20drift/" class="md-tabs__link">
+          
+  
+  
+  Evolutionary processes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../03_Models/Wright_Fisher_model/" class="md-tabs__link">
+          
+  
+  
+  Models
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../04_Statistics/GWAS_K_matrix/" class="md-tabs__link">
+          
+  
+  
+  Statistics
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Statistical Genetics Notes" class="md-nav__button md-logo" aria-label="Statistical Genetics Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Statistical Genetics Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meta
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Meta
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Meta/What_is_statistical_genetics_about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What is statistical genetics?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Single locus
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Single locus
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_Core/00_single_locus/Allele_frequency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Allele frequency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_Core/00_single_locus/Hardy_Weinberg_equilibrium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardy–Weinberg equilibrium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structural state
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Structural state
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_Core/02_Structual_state/Linkage_disequilibrium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linkage disequilibrium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_Core/02_Structual_state/Population_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Population structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dynamics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_Core/Frequency%20dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frequency dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_Core/Variance%20dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variance dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evolutionary processes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Evolutionary processes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Genetic%20drift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Genetic drift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mutation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mutation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Selection
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Selection
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Selection%28general%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fitness scheme
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fitness scheme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-a-fitness-scheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What is a fitness scheme?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-viability-selection-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Viability selection framework
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-canonical-parameterization-single-locus-two-allele" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Canonical parameterization (single-locus, two-allele)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-interpretation-of-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Interpretation of parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Interpretation of parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selection-coefficient-s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Selection coefficient (\(s\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dominance-coefficient-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dominance coefficient (\(h\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-special-cases-and-their-biological-meaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Special cases and their biological meaning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Special cases and their biological meaning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-complete-dominance-h-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Complete dominance (h = 0)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-additive-selection-h-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Additive selection (h = 1/2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-complete-recessivity-h-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Complete recessivity (h = 1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-fitness-scheme-as-a-force-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Fitness scheme as a force field
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-fixed-points-and-their-meaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Fixed points and their meaning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-what-fitness-schemes-do-not-capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. What fitness schemes do NOT capture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-role-of-fitness-schemes-in-population-genetics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Role of fitness schemes in population genetics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dominance_selection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dominance selection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overdominance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overdominance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Underdominace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Underdominance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Balancing_selection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Balancing selection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mutation_selection_balance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mutation–selection balance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Selection_continuous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous selection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_Models/Wright_Fisher_model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wright–Fisher model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_Models/Diffusion_approximation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diffusion approximation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_Models/Coalescent_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coalescent theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_Models/Site_frequency_spectrum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Site frequency spectrum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_Models/Background_selection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Background selection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04_Statistics/GWAS_K_matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GWAS K matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04_Statistics/Speciation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Speciation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Fitness scheme</h1>
+
+<h2 id="1-what-is-a-fitness-scheme">1. What is a fitness scheme?<a class="headerlink" href="#1-what-is-a-fitness-scheme" title="Permanent link">&para;</a></h2>
+<p>A <strong>fitness scheme</strong> specifies how different <strong>genotypes contribute to the next generation</strong>.<br />
+It translates biological assumptions about survival or reproduction into <strong>relative weights</strong>, which in turn define the <strong>direction and strength of allele frequency dynamics</strong>.</p>
+<blockquote>
+<p>Fitness schemes are not empirical measurements of survival probability,<br />
+but <strong>relative fitness values</strong> used to construct a dynamical system.</p>
+</blockquote>
+<p>In population genetics, the fitness scheme acts as the <strong>interface</strong> between:</p>
+<ul>
+<li>
+<p>biological assumptions</p>
+</li>
+<li>
+<p>mathematical formulation</p>
+</li>
+<li>
+<p>dynamical behavior of allele frequencies</p>
+</li>
+</ul>
+<hr />
+<h2 id="2-viability-selection-framework">2. Viability selection framework<a class="headerlink" href="#2-viability-selection-framework" title="Permanent link">&para;</a></h2>
+<p>In the <strong>viability selection</strong> model:</p>
+<ul>
+<li>
+<p>selection acts between <strong>zygote formation and adulthood</strong></p>
+</li>
+<li>
+<p>genotypes differ in their probability of surviving to reproduce</p>
+</li>
+<li>
+<p>population size is implicitly rescaled each generation</p>
+</li>
+</ul>
+<p>Let the genotype fitnesses be:</p>
+<div class="arithmatex">\[
+w_{AA},; w_{Aa},; w_{aa}  
+\]</div>
+<p>These values are <strong>relative</strong>, meaning that multiplying all fitnesses by a constant does not change the dynamics.</p>
+<hr />
+<h2 id="3-canonical-parameterization-single-locus-two-allele">3. Canonical parameterization (single-locus, two-allele)<a class="headerlink" href="#3-canonical-parameterization-single-locus-two-allele" title="Permanent link">&para;</a></h2>
+<p>A widely used and highly informative parameterization is:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+w_{AA} &amp;= 1 \\
+w_{Aa} &amp;= 1 - hs \\
+w_{aa} &amp;= 1 - s
+\end{aligned}
+\]</div>
+<p>where:</p>
+<ul>
+<li>
+<p>( <span class="arithmatex">\(s\)</span> ) = <strong>selection coefficient</strong> (strength of selection)</p>
+</li>
+<li>
+<p>( <span class="arithmatex">\(h\)</span> ) = <strong>dominance coefficient</strong> (how heterozygotes compare to homozygotes)</p>
+</li>
+</ul>
+<p>This parameterization captures most classical selection models by varying (<span class="arithmatex">\(h\)</span>).</p>
+<hr />
+<h2 id="4-interpretation-of-parameters">4. Interpretation of parameters<a class="headerlink" href="#4-interpretation-of-parameters" title="Permanent link">&para;</a></h2>
+<h3 id="selection-coefficient-s">Selection coefficient (<span class="arithmatex">\(s\)</span>)<a class="headerlink" href="#selection-coefficient-s" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Measures the fitness disadvantage of genotype (<span class="arithmatex">\(aa\)</span>)</p>
+</li>
+<li>
+<p>(<span class="arithmatex">\(s = 0\)</span>): no selection</p>
+</li>
+<li>
+<p>Larger (<span class="arithmatex">\(s\)</span>): stronger selection against (<span class="arithmatex">\(aa\)</span>)</p>
+</li>
+</ul>
+<h3 id="dominance-coefficient-h">Dominance coefficient (<span class="arithmatex">\(h\)</span>)<a class="headerlink" href="#dominance-coefficient-h" title="Permanent link">&para;</a></h3>
+<p>Controls how the heterozygote compares to homozygotes:</p>
+<table>
+<thead>
+<tr>
+<th>(<span class="arithmatex">\(h\)</span>)</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>complete dominance of <span class="arithmatex">\(A\)</span></td>
+</tr>
+<tr>
+<td>1/2</td>
+<td>additive (codominant)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>complete recessivity of <span class="arithmatex">\(A\)</span></td>
+</tr>
+<tr>
+<td>&lt; 0</td>
+<td>overdominance (heterozygote advantage)</td>
+</tr>
+<tr>
+<td>&gt; 1</td>
+<td>underdominance (heterozygote disadvantage)</td>
+</tr>
+</tbody>
+</table>
+<p>Thus, <strong>(<span class="arithmatex">\(h\)</span>) determines the qualitative structure of the dynamics</strong>, not just the speed.</p>
+<hr />
+<h2 id="5-special-cases-and-their-biological-meaning">5. Special cases and their biological meaning<a class="headerlink" href="#5-special-cases-and-their-biological-meaning" title="Permanent link">&para;</a></h2>
+<h3 id="51-complete-dominance-h-0">5.1 Complete dominance (h = 0)<a class="headerlink" href="#51-complete-dominance-h-0" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[ 
+w_{AA} = w_{Aa} = 1,\quad w_{aa} = 1 - s  
+\]</div>
+<ul>
+<li>
+<p>Heterozygotes express the beneficial allele</p>
+</li>
+<li>
+<p>Selection is effective even at low allele frequency</p>
+</li>
+<li>
+<p>(<span class="arithmatex">\(dp/dt \propto sp\)</span>)</p>
+</li>
+</ul>
+<p><strong>Biological meaning:</strong><br />
+The beneficial allele is visible to selection immediately.</p>
+<hr />
+<h3 id="52-additive-selection-h-12">5.2 Additive selection (h = 1/2)<a class="headerlink" href="#52-additive-selection-h-12" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+w_{Aa} = \frac{w_{AA} + w_{aa}}{2}  
+\]</div>
+<ul>
+<li>
+<p>Most commonly used textbook model</p>
+</li>
+<li>
+<p>Symmetric contribution of alleles</p>
+</li>
+<li>
+<p>Smooth allele frequency change</p>
+</li>
+</ul>
+<p><strong>Biological meaning:</strong><br />
+Phenotype changes approximately linearly with allele dosage.</p>
+<hr />
+<h3 id="53-complete-recessivity-h-1">5.3 Complete recessivity (h = 1)<a class="headerlink" href="#53-complete-recessivity-h-1" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+w_{Aa} = w_{aa}  
+\]</div>
+<ul>
+<li>
+<p>Beneficial allele hidden in heterozygotes</p>
+</li>
+<li>
+<p>Very slow increase when rare</p>
+</li>
+<li>
+<p>(<span class="arithmatex">\(dp/dt \propto sp^2\)</span>)</p>
+</li>
+</ul>
+<p><strong>Biological meaning:</strong><br />
+Recessive advantageous mutations struggle to escape low frequency.</p>
+<hr />
+<h2 id="6-fitness-scheme-as-a-force-field">6. Fitness scheme as a force field<a class="headerlink" href="#6-fitness-scheme-as-a-force-field" title="Permanent link">&para;</a></h2>
+<p>Once a fitness scheme is specified, allele frequency dynamics can be viewed as motion in a <strong>force field</strong>:</p>
+<div class="arithmatex">\[
+\frac{dp}{dt} = F(p)  
+\]</div>
+<ul>
+<li>
+<p>(<span class="arithmatex">\(p\)</span>): allele A frequency</p>
+</li>
+<li>
+<p>(<span class="arithmatex">\(F(p)\)</span>): selection-induced force</p>
+</li>
+</ul>
+<p>Fixed points satisfy:<br />
+$$
+F(p) = 0<br />
+$$</p>
+<p>The <strong>stability</strong> of these points depends entirely on the fitness scheme.</p>
+<blockquote>
+<p>Fitness schemes define the <strong>topology of the phase portrait</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="7-fixed-points-and-their-meaning">7. Fixed points and their meaning<a class="headerlink" href="#7-fixed-points-and-their-meaning" title="Permanent link">&para;</a></h2>
+<p>For simple directional selection:</p>
+<ul>
+<li>
+<p>(<span class="arithmatex">\(p = 0\)</span>): loss of allele A</p>
+</li>
+<li>
+<p>(<span class="arithmatex">\(p = 1\)</span>): fixation of allele A</p>
+</li>
+</ul>
+<p>Stability interpretation:</p>
+<ul>
+<li>
+<p><strong>Stable</strong>: system returns after perturbation</p>
+</li>
+<li>
+<p><strong>Unstable</strong>: any perturbation drives system away</p>
+</li>
+</ul>
+<p>⚠️ Important clarification:<br />
+An unstable fixed point (e.g. (<span class="arithmatex">\(p=0\)</span>)) does <strong>not</strong> mean population extinction —<br />
+it only means the allele frequency state is unstable.</p>
+<hr />
+<h2 id="8-what-fitness-schemes-do-not-capture">8. What fitness schemes do NOT capture<a class="headerlink" href="#8-what-fitness-schemes-do-not-capture" title="Permanent link">&para;</a></h2>
+<p>Fitness schemes intentionally ignore:</p>
+<ul>
+<li>
+<p>linkage and LD</p>
+</li>
+<li>
+<p>individual ancestry</p>
+</li>
+<li>
+<p>genotype phase</p>
+</li>
+<li>
+<p>finite population stochasticity</p>
+</li>
+</ul>
+<p>These effects are handled by:</p>
+<ul>
+<li>
+<p>drift models</p>
+</li>
+<li>
+<p>multi-locus models</p>
+</li>
+<li>
+<p>coalescent theory</p>
+</li>
+</ul>
+<p>Thus, fitness schemes are <strong>controlled abstractions</strong>, not complete descriptions.</p>
+<hr />
+<h2 id="9-role-of-fitness-schemes-in-population-genetics">9. Role of fitness schemes in population genetics<a class="headerlink" href="#9-role-of-fitness-schemes-in-population-genetics" title="Permanent link">&para;</a></h2>
+<p>Fitness schemes:</p>
+<ul>
+<li>
+<p>define selection models</p>
+</li>
+<li>
+<p>determine equilibrium structure</p>
+</li>
+<li>
+<p>predict fixation vs polymorphism</p>
+</li>
+<li>
+<p>connect biology to dynamical systems</p>
+</li>
+</ul>
+<p>They are the <strong>starting point</strong> for:</p>
+<ul>
+<li>
+<p>mutation–selection balance</p>
+</li>
+<li>
+<p>balancing selection</p>
+</li>
+<li>
+<p>selective sweeps</p>
+</li>
+<li>
+<p>phase-plane analysis</p>
+</li>
+</ul>
+<hr />
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><a href="../Selection%28general%29/">Selection(general)</a>]</p>
+</li>
+<li>
+<p><a href="../../../01_Core/00_single_locus/Allele_frequency/">Allele_frequency</a></p>
+</li>
+<li>
+<p><a href="../../../01_Core/Frequency%20dynamics/">Frequency dynamics</a></p>
+</li>
+<li>
+<p><a href="../../Mutation/">Mutation</a></p>
+</li>
+<li>
+<p><a href="../Mutation_selection_balance/">Mutation_selection_balance</a></p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "content.code.copy", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2202 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Notes on population genetics and quantitative genetics">
+      
+      
+        <meta name="author" content="Lucylalala">
+      
+      
+      
+        <link rel="prev" href="../Wright_Fisher_model/">
+      
+      
+        <link rel="next" href="../Coalescent_theory/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Diffusion approximation - Statistical Genetics Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-conceptual-motivation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Statistical Genetics Notes" class="md-header__button md-logo" aria-label="Statistical Genetics Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Statistical Genetics Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Diffusion approximation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00_Meta/What_is_statistical_genetics_about/" class="md-tabs__link">
+          
+  
+  
+  Meta
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01_Core/00_single_locus/Allele_frequency/" class="md-tabs__link">
+          
+  
+  
+  Core concepts
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02_Processes/Genetic%20drift/" class="md-tabs__link">
+          
+  
+  
+  Evolutionary processes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Wright_Fisher_model/" class="md-tabs__link">
+          
+  
+  
+  Models
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04_Statistics/GWAS_K_matrix/" class="md-tabs__link">
+          
+  
+  
+  Statistics
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Statistical Genetics Notes" class="md-nav__button md-logo" aria-label="Statistical Genetics Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Statistical Genetics Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meta
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Meta
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_Meta/What_is_statistical_genetics_about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What is statistical genetics?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Single locus
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Single locus
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Core/00_single_locus/Allele_frequency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Allele frequency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Core/00_single_locus/Hardy_Weinberg_equilibrium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardy–Weinberg equilibrium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structural state
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Structural state
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Core/02_Structual_state/Linkage_disequilibrium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linkage disequilibrium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Core/02_Structual_state/Population_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Population structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dynamics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Core/Frequency%20dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frequency dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_Core/Variance%20dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variance dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evolutionary processes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Evolutionary processes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Genetic%20drift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Genetic drift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Mutation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mutation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Selection
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Selection
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Selection%28general%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Fitness_scheme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fitness scheme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Dominance_selection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dominance selection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Overdominance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overdominance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Underdominace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Underdominance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Balancing_selection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Balancing selection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Mutation_selection_balance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mutation–selection balance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_Processes/Selection/Selection_continuous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous selection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Wright_Fisher_model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wright–Fisher model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diffusion approximation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diffusion approximation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-conceptual-motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Conceptual motivation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-fundamental-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Fundamental idea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-wrightfisher-moments-as-the-starting-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Wright–Fisher moments as the starting point
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Wright–Fisher moments as the starting point">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conditional-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditional mean
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditional-variance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditional variance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-time-rescaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Time rescaling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-diffusion-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Diffusion limit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-wrightfisher-diffusion-neutral-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Wright–Fisher diffusion (neutral case)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-selection-drift-unified-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Selection + drift: unified dynamics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-fokkerplanck-forward-kolmogorov-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Fokker–Planck (forward Kolmogorov) equation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-boundary-behavior-and-fixation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Boundary behavior and fixation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-conceptual-interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Conceptual interpretation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-position-in-the-population-genetics-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Position in the population genetics framework
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-what-diffusion-approximation-enables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. What diffusion approximation enables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Coalescent_theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coalescent theory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Site_frequency_spectrum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Site frequency spectrum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Background_selection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Background selection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_Statistics/GWAS_K_matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GWAS K matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_Statistics/Speciation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Speciation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Diffusion approximation</h1>
+
+<h2 id="1-conceptual-motivation">1. Conceptual motivation<a class="headerlink" href="#1-conceptual-motivation" title="Permanent link">&para;</a></h2>
+<p>The Wright–Fisher model provides an exact, discrete-time description of allele frequency evolution in a finite population.<br />
+However, its discrete state space and generation-based dynamics make analytical treatment and inference difficult.</p>
+<p>The diffusion approximation addresses this by asking:</p>
+<blockquote>
+<p><em>What is the continuous-time limit of Wright–Fisher dynamics when population size is large and per-generation changes are small?</em></p>
+</blockquote>
+<p>The answer is a <strong>stochastic differential equation (SDE)</strong> describing allele frequency evolution as a diffusion process.</p>
+<hr />
+<h2 id="2-fundamental-idea">2. Fundamental idea<a class="headerlink" href="#2-fundamental-idea" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Diffusion approximation is the large-population, long-time, weak-change limit of the Wright–Fisher model.</strong></p>
+</blockquote>
+<p>Three ingredients are essential:</p>
+<ol>
+<li>
+<p>Finite population size introduces randomness (genetic drift)</p>
+</li>
+<li>
+<p>Allele frequency changes per generation are small</p>
+</li>
+<li>
+<p>Random effects accumulate over many generations</p>
+</li>
+</ol>
+<p>Under these conditions, discrete binomial sampling converges to continuous stochastic motion.</p>
+<hr />
+<h2 id="3-wrightfisher-moments-as-the-starting-point">3. Wright–Fisher moments as the starting point<a class="headerlink" href="#3-wrightfisher-moments-as-the-starting-point" title="Permanent link">&para;</a></h2>
+<p>Let <span class="arithmatex">\(p_t\)</span> denote the allele frequency at generation <span class="arithmatex">\(t\)</span>.</p>
+<p>Under the Wright–Fisher model:
+$$
+X_{t+1} \mid p_t \sim \mathrm{Binomial}(2N, p_t)<br />
+\quad\text{and}\quad<br />
+p_{t+1} = \frac{X_{t+1}}{2N}<br />
+$$</p>
+<p>The first two conditional moments are:</p>
+<h3 id="conditional-mean">Conditional mean<a class="headerlink" href="#conditional-mean" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\mathbb{E}[p_{t+1} - p_t \mid p_t] = M(p_t)  
+\]</div>
+<h3 id="conditional-variance">Conditional variance<a class="headerlink" href="#conditional-variance" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\mathrm{Var}(p_{t+1} - p_t \mid p_t) = V(p_t)  
+\]</div>
+<p>For <strong>neutral drift</strong>:<br />
+$$
+M(p) = 0, \qquad V(p) = \frac{p(1-p)}{2N}<br />
+$$</p>
+<p>These two quantities completely determine the diffusion limit.</p>
+<hr />
+<h2 id="4-time-rescaling">4. Time rescaling<a class="headerlink" href="#4-time-rescaling" title="Permanent link">&para;</a></h2>
+<p>As <span class="arithmatex">\(N \to \infty\)</span>, the per-generation variance goes to zero.<br />
+To observe non-trivial stochastic behavior, time must be rescaled.</p>
+<p>Define continuous time:<br />
+$$
+t = \frac{\tau}{2N}<br />
+$$</p>
+<p>Interpretation:</p>
+<ul>
+<li>
+<p>Each generation contributes a fluctuation of order <span class="arithmatex">\(1/N\)</span></p>
+</li>
+<li>
+<p>Over <span class="arithmatex">\(O(N)\)</span> generations, these fluctuations accumulate</p>
+</li>
+</ul>
+<p>This rescaling is essential and not optional.</p>
+<hr />
+<h2 id="5-diffusion-limit">5. Diffusion limit<a class="headerlink" href="#5-diffusion-limit" title="Permanent link">&para;</a></h2>
+<p>Under the rescaling above, the allele frequency process converges to a stochastic differential equation:
+$$
+\boxed{<br />
+dp(t) = M(p)\,dt + \sqrt{V(p)}\,dW_t<br />
+}<br />
+$$</p>
+<p>where:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(W_t\)</span> is standard Brownian motion</p>
+</li>
+<li>
+<p><span class="arithmatex">\(M(p)\)</span> is the deterministic drift term</p>
+</li>
+<li>
+<p><span class="arithmatex">\(V(p)\)</span> is the diffusion (variance) term</p>
+</li>
+</ul>
+<hr />
+<h2 id="6-wrightfisher-diffusion-neutral-case">6. Wright–Fisher diffusion (neutral case)<a class="headerlink" href="#6-wrightfisher-diffusion-neutral-case" title="Permanent link">&para;</a></h2>
+<p>For pure genetic drift:
+$$
+\boxed{<br />
+dp(t) = \sqrt{p(1-p)}\,dW_t<br />
+}<br />
+$$</p>
+<p>Key properties:</p>
+<ul>
+<li>
+<p>No deterministic trend</p>
+</li>
+<li>
+<p>State-dependent noise</p>
+</li>
+<li>
+<p>Absorbing boundaries at <span class="arithmatex">\(p=0\)</span> and <span class="arithmatex">\(p=1\)</span></p>
+</li>
+</ul>
+<p>This process is known as the <strong>Wright–Fisher diffusion</strong>.</p>
+<hr />
+<h2 id="7-selection-drift-unified-dynamics">7. Selection + drift: unified dynamics<a class="headerlink" href="#7-selection-drift-unified-dynamics" title="Permanent link">&para;</a></h2>
+<p>When selection is present, the deterministic term becomes non-zero.</p>
+<p>For genic selection with coefficient ( s ):
+$$
+\boxed{<br />
+dp
+=
+s\,p(1-p)\,dt<br />
++<br />
+\sqrt{\frac{p(1-p)}{2N}}\,dW_t<br />
+}<br />
+$$</p>
+<p>Interpretation:</p>
+<ul>
+<li>
+<p>Selection determines the <strong>direction</strong> of change</p>
+</li>
+<li>
+<p>Drift determines the <strong>uncertainty</strong> around that direction</p>
+</li>
+</ul>
+<p>This decomposition formalizes the orthogonality of selection and drift.</p>
+<hr />
+<h2 id="8-fokkerplanck-forward-kolmogorov-equation">8. Fokker–Planck (forward Kolmogorov) equation<a class="headerlink" href="#8-fokkerplanck-forward-kolmogorov-equation" title="Permanent link">&para;</a></h2>
+<p>Instead of tracking individual trajectories, one may study the probability density ( f(p,t) ).</p>
+<p>The corresponding Fokker–Planck equation is:
+$$
+\frac{\partial f}{\partial t}
+=
+-\frac{\partial}{\partial p}[M(p)f]<br />
++<br />
+\frac{1}{2}\frac{\partial^2}{\partial p^2}[V(p)f]<br />
+$$</p>
+<p>For neutral drift:
+$$
+\frac{\partial f}{\partial t}
+=
+\frac{1}{2}<br />
+\frac{\partial^2}{\partial p^2}\big[p(1-p)f\big]<br />
+$$</p>
+<p>This formulation underlies many results in population genetics, including fixation times and frequency spectra.</p>
+<hr />
+<h2 id="9-boundary-behavior-and-fixation">9. Boundary behavior and fixation<a class="headerlink" href="#9-boundary-behavior-and-fixation" title="Permanent link">&para;</a></h2>
+<p>In the diffusion framework:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(p=0\)</span> and <span class="arithmatex">\(p=1\)</span> are absorbing boundaries</p>
+</li>
+<li>
+<p>Fixation probability under neutrality:<br />
+$$
+    P_{\mathrm{fix}}(p_0) = p_0<br />
+    $$</p>
+</li>
+<li>Expected fixation time scales with effective population size</li>
+</ul>
+<p>Diffusion theory reproduces all classical Wright–Fisher fixation results in continuous time.</p>
+<hr />
+<h2 id="10-conceptual-interpretation">10. Conceptual interpretation<a class="headerlink" href="#10-conceptual-interpretation" title="Permanent link">&para;</a></h2>
+<p>Diffusion approximation shows that:</p>
+<ul>
+<li>
+<p>Genetic drift is not an ad hoc noise term</p>
+</li>
+<li>
+<p>It emerges naturally from finite sampling</p>
+</li>
+<li>
+<p>Its strength is inversely proportional to effective population size</p>
+</li>
+</ul>
+<p>From this perspective:</p>
+<blockquote>
+<p><strong>Genetic drift is the diffusion component of allele frequency dynamics arising from finite reproduction.</strong></p>
+</blockquote>
+<hr />
+<h2 id="11-position-in-the-population-genetics-framework">11. Position in the population genetics framework<a class="headerlink" href="#11-position-in-the-population-genetics-framework" title="Permanent link">&para;</a></h2>
+<p>Diffusion approximation occupies a central position:</p>
+<div class="highlight"><pre><span></span><code>Wright–Fisher model
+        ↓
+Diffusion approximation
+        ↓
+Coalescent theory
+        ↓
+SFS / LD / GWAS
+</code></pre></div>
+<p>It forms the bridge between:</p>
+<ul>
+<li>
+<p>Forward-time stochastic dynamics</p>
+</li>
+<li>
+<p>Backward-time genealogical processes</p>
+</li>
+</ul>
+<hr />
+<h2 id="12-what-diffusion-approximation-enables">12. What diffusion approximation enables<a class="headerlink" href="#12-what-diffusion-approximation-enables" title="Permanent link">&para;</a></h2>
+<p>Only within the diffusion framework can one:</p>
+<ul>
+<li>
+<p>Derive continuous-time fixation statistics</p>
+</li>
+<li>
+<p>Construct likelihood-based inference</p>
+</li>
+<li>
+<p>Incorporate time-varying population size</p>
+</li>
+<li>
+<p>Connect allele frequencies to coalescent genealogies</p>
+</li>
+<li>
+<p>Interpret GWAS kinship matrices as covariance structures</p>
+</li>
+</ul>
+<hr />
+<h2 id="13-limitations">13. Limitations<a class="headerlink" href="#13-limitations" title="Permanent link">&para;</a></h2>
+<p>Diffusion approximation assumes:</p>
+<ul>
+<li>
+<p>Large effective population size</p>
+</li>
+<li>
+<p>Small per-generation changes</p>
+</li>
+<li>
+<p>Weak selection, mutation, and migration</p>
+</li>
+</ul>
+<p>It is an approximation, but a <strong>controlled and principled one</strong>.</p>
+<hr />
+<h2 id="14-summary">14. Summary<a class="headerlink" href="#14-summary" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Diffusion approximation provides a continuous-time stochastic description of allele frequency evolution that preserves the essential effects of genetic drift while enabling analytical and inferential tractability.</strong></p>
+</blockquote>
+<p>It is the mathematical backbone of modern population genetics.</p>
+<hr />
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><a href="../Wright_Fisher_model/">Wright_Fisher_model</a></p>
+</li>
+<li>
+<p><a href="../../02_Processes/Genetic%20drift/">Genetic drift</a></p>
+</li>
+<li>
+<p><a href="../../02_Processes/Selection/Selection_continuous/">Selection_continuous</a></p>
+</li>
+<li>
+<p><a href="../Coalescent_theory/">Coalescent_theory</a></p>
+</li>
+<li>
+<p><a href="../../01_Core/02_Structual_state/Population_structure/">Population_structure</a></p>
+</li>
+<li>
+<p><a href="../../04_Statistics/GWAS_K_matrix/">GWAS_K_matrix</a></p>
+</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
