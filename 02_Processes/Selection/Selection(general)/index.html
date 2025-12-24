@@ -1773,10 +1773,12 @@
 </ul>
 <h2 id="2-fitness-scheme">2. Fitness scheme<a class="headerlink" href="#2-fitness-scheme" title="Permanent link">&para;</a></h2>
 <p>In a viability selection model, fitness represents relative survival from zygote to adulthood, not absolute survival probability. Genotypes with lower fitness contribute proportionally fewer individuals to the next generation.
-Let genotype fitnesses be:
-- <span class="arithmatex">\(w_{AA} = 1\)</span>
-- <span class="arithmatex">\(w_{Aa} = 1\)</span>
-- <span class="arithmatex">\(w_{aa} = 1 - s\)</span></p>
+Let genotype fitnesses be:</p>
+<ul>
+<li><span class="arithmatex">\(w_{AA} = 1\)</span></li>
+<li><span class="arithmatex">\(w_{Aa} = 1\)</span></li>
+<li><span class="arithmatex">\(w_{aa} = 1 - s\)</span></li>
+</ul>
 <h2 id="3-update-rule">3. Update rule<a class="headerlink" href="#3-update-rule" title="Permanent link">&para;</a></h2>
 <p>Let <span class="arithmatex">\(p_t\)</span> be allele <span class="arithmatex">\(A\)</span> frequency at generation <span class="arithmatex">\(t\)</span>.</p>
 <p>After selection:
@@ -1784,25 +1786,26 @@ $$
 p_{t+1} = \frac{p_t}{1 - s(1 - p_t)^2}
 $$</p>
 <h2 id="4-fixed-points">4. Fixed points<a class="headerlink" href="#4-fixed-points" title="Permanent link">&para;</a></h2>
-<p>Solve <span class="arithmatex">\(p_{t+1} = p_t\)</span>:
-- <span class="arithmatex">\(p = 0\)</span>
-- <span class="arithmatex">\(p = 1\)</span></p>
+<p>Solve <span class="arithmatex">\(p_{t+1} = p_t\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(p = 0\)</span></li>
+<li><span class="arithmatex">\(p = 1\)</span></li>
+</ul>
 <h2 id="5-stability">5. Stability<a class="headerlink" href="#5-stability" title="Permanent link">&para;</a></h2>
 <ul>
 <li><span class="arithmatex">\(p = 1\)</span> is stable</li>
-<li><span class="arithmatex">\(p = 0\)</span> is unstable (if <span class="arithmatex">\(s &gt; 0\)</span>)
-<span class="arithmatex">\(p = 0\)</span> is an unstable fixed point under positive selection, meaning that any introduction of the beneficial allele will drive the system away from this state.</li>
+<li><span class="arithmatex">\(p = 0\)</span> is unstable (if <span class="arithmatex">\(s &gt; 0\)</span>)</li>
 </ul>
+<p><span class="arithmatex">\(p = 0\)</span> is an unstable fixed point under positive selection, meaning that any introduction of the beneficial allele will drive the system away from this state.</p>
 <h2 id="6-interpretation">6. Interpretation<a class="headerlink" href="#6-interpretation" title="Permanent link">&para;</a></h2>
 <p>Selection drives allele frequency toward fixation of the beneficial allele.</p>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../../../01_Core/00_single_locus/Allele_frequency/">Allele_frequency</a></li>
 <li><a href="../../../01_Core/Frequency%20dynamics/">Frequency dynamics</a></li>
+<li><a href="../Dominance_selection/">Dominance_selection</a></li>
+<li><a href="../Overdominance/">Overdominance</a></li>
 </ul>
-<p>Extensions:
-- <a href="../Dominance_selection/">Dominance_selection</a>
-- <a href="../Overdominance/">Overdominance</a></p>
 
 
 

@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1-why-population-structure-matters" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -729,6 +734,24 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Population structure
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -745,6 +768,155 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-why-population-structure-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Why population structure matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#population-structure-transforms-individual-level-randomness-into-population-level-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        &gt; Population structure transforms individual-level randomness into population-level bias.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-formal-definition-allele-frequency-perspective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Formal definition (allele frequency perspective)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sampling-from-a-structured-population" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Sampling from a structured population
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-wahlund-effect-loss-of-heterozygosity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Wahlund effect (loss of heterozygosity)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-population-structure-as-drift-in-parallel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Population structure as drift in parallel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-differentiation-and-f-statistics-intuition-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Differentiation and F-statistics (intuition only)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-migration-vs-population-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Migration vs population structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migration-erodes-structure-drift-builds-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        &gt; Migration erodes structure; drift builds it.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-relation-to-other-core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Relation to other core concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-what-this-chapter-does-not-cover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. What this chapter does NOT cover
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1655,7 +1827,116 @@
 
   <h1>Population structure</h1>
 
-
+<p>Population structure describes the non-random distribution of allele frequencies
+across individuals due to subdivision of a population into partially isolated
+subpopulations.</p>
+<p>It is the most fundamental deviation from the idealized assumptions of:
+- Hardy–Weinberg equilibrium
+- panmixia (random mating)
+- a single, well-mixed population</p>
+<p>Population structure is therefore a <em>state of the population</em>, not an evolutionary
+process itself.</p>
+<hr />
+<h2 id="1-why-population-structure-matters">1. Why population structure matters<a class="headerlink" href="#1-why-population-structure-matters" title="Permanent link">&para;</a></h2>
+<p>Population structure matters because most statistical genetic models implicitly
+assume that all sampled individuals are drawn from a single, randomly mating population.</p>
+<p>When this assumption is violated:
+- allele frequencies vary across subpopulations,
+- genotype frequencies deviate from Hardy–Weinberg expectations,
+- loci may appear correlated even without physical linkage,
+- spurious associations arise in GWAS.</p>
+<p>Thus, population structure is the primary source of confounding in population
+genetic inference.</p>
+<h2 id="population-structure-transforms-individual-level-randomness-into-population-level-bias">&gt; <strong>Population structure transforms individual-level randomness into population-level bias.</strong><a class="headerlink" href="#population-structure-transforms-individual-level-randomness-into-population-level-bias" title="Permanent link">&para;</a></h2>
+<h2 id="2-formal-definition-allele-frequency-perspective">2. Formal definition (allele frequency perspective)<a class="headerlink" href="#2-formal-definition-allele-frequency-perspective" title="Permanent link">&para;</a></h2>
+<p>Consider a biallelic locus with alleles <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(a\)</span>.</p>
+<p>Let the population be subdivided into K subpopulations.
+In subpopulation k, the allele A has frequency <span class="arithmatex">\(p_k\)</span>.</p>
+<p>Population structure exists if:
+<span class="arithmatex">\(p_1 ≠ p_2 ≠ ... ≠ p_K\)</span></p>
+<p>The fundamental object in population structure is not genotype,
+but the distribution of allele frequencies across subpopulations.</p>
+<hr />
+<h2 id="3-sampling-from-a-structured-population">3. Sampling from a structured population<a class="headerlink" href="#3-sampling-from-a-structured-population" title="Permanent link">&para;</a></h2>
+<p>Suppose a sample is drawn by pooling individuals from multiple subpopulations.</p>
+<p>Let:
+- <span class="arithmatex">\(w_k\)</span> be the proportion of samples from subpopulation <span class="arithmatex">\(k\)</span>
+- <span class="arithmatex">\(p_k\)</span> be the allele frequency in subpopulation <span class="arithmatex">\(k\)</span></p>
+<p>The overall allele frequency in the pooled sample is:
+$$
+p = Σ_k w_k p_k
+$$</p>
+<hr />
+<h2 id="4-wahlund-effect-loss-of-heterozygosity">4. Wahlund effect (loss of heterozygosity)<a class="headerlink" href="#4-wahlund-effect-loss-of-heterozygosity" title="Permanent link">&para;</a></h2>
+<p>Even if each subpopulation is in Hardy–Weinberg equilibrium,
+the pooled population generally is not.</p>
+<p>Expected heterozygosity within subpopulations:
+<span class="arithmatex">\(H_within = Σ_k w_k 2 p_k (1 - p_k)\)</span></p>
+<p>Expected heterozygosity under pooled allele frequency:
+<span class="arithmatex">\(H_total = 2 p (1 - p)\)</span></p>
+<p>In structured populations:
+<span class="arithmatex">\(H_within &gt; H_total\)</span></p>
+<p><strong>Wahlund effect</strong>
+Population structure creates an apparent deficit of heterozygotes,
+not because of inbreeding or selection,
+but because alleles are sampled from different frequency backgrounds.</p>
+<hr />
+<h2 id="5-population-structure-as-drift-in-parallel">5. Population structure as drift in parallel<a class="headerlink" href="#5-population-structure-as-drift-in-parallel" title="Permanent link">&para;</a></h2>
+<p>Population structure arises naturally through genetic drift acting independently
+in different subpopulations.</p>
+<p>Starting from the same ancestral population:
+- random drift causes allele frequencies to diverge,
+- different populations explore different evolutionary trajectories.</p>
+<p>Thus, population structure is the spatial imprint of genetic drift.</p>
+<blockquote>
+<p><strong>Population structure is drift observed across space rather than time.</strong></p>
+</blockquote>
+<hr />
+<h2 id="6-differentiation-and-f-statistics-intuition-only">6. Differentiation and F-statistics (intuition only)<a class="headerlink" href="#6-differentiation-and-f-statistics-intuition-only" title="Permanent link">&para;</a></h2>
+<p>Genetic differentiation between populations is commonly summarized by F-statistics.</p>
+<p><span class="arithmatex">\(F_ST\)</span> measures the fraction of total genetic variance that is explained by
+between-population differences in allele frequency.</p>
+<p>Conceptually:
+<span class="arithmatex">\(F_ST = Var(p_k) / Var_total\)</span></p>
+<p>At the core level, F_ST quantifies how much allele frequency variation</p>
+<hr />
+<h2 id="7-migration-vs-population-structure">7. Migration vs population structure<a class="headerlink" href="#7-migration-vs-population-structure" title="Permanent link">&para;</a></h2>
+<p>Population structure reflects a balance between two forces:
+- genetic drift, which differentiates populations,
+- migration, which homogenizes allele frequencies.</p>
+<p>Strong drift + weak migration → strong structure
+Weak drift + strong migration → weak structure</p>
+<h2 id="migration-erodes-structure-drift-builds-it">&gt; <strong>Migration erodes structure; drift builds it.</strong><a class="headerlink" href="#migration-erodes-structure-drift-builds-it" title="Permanent link">&para;</a></h2>
+<h2 id="8-relation-to-other-core-concepts">8. Relation to other core concepts<a class="headerlink" href="#8-relation-to-other-core-concepts" title="Permanent link">&para;</a></h2>
+<p>Population structure directly affects:</p>
+<ul>
+<li>Hardy–Weinberg equilibrium (via Wahlund effect)</li>
+<li>Linkage disequilibrium (via admixture LD)</li>
+<li>Allele frequency dynamics</li>
+<li>Variance dynamics</li>
+</ul>
+<p>Population structure provides the conceptual foundation for:
+- GWAS K matrix
+- Structured coalescent
+- Local ancestry and haplotypes</p>
+<hr />
+<h2 id="9-what-this-chapter-does-not-cover">9. What this chapter does NOT cover<a class="headerlink" href="#9-what-this-chapter-does-not-cover" title="Permanent link">&para;</a></h2>
+<p>This core chapter intentionally does not cover:
+- inference methods (PCA, ADMIXTURE, STRUCTURE),
+- structured coalescent theory,
+- likelihood-based models.</p>
+<p>These topics are treated in later Model-level notes.</p>
+<hr />
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Hardy_Weinberg_equilibrium</li>
+<li>Genetic_drift</li>
+<li>Migration</li>
+<li>Linkage_disequilibrium</li>
+<li>GWAS_K_matrix</li>
+<li>Structured_coalescent</li>
+</ul>
+<hr />
 
 
 

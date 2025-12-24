@@ -1207,7 +1207,7 @@
   <a href="#selection-coefficient-s" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Selection coefficient (\(s\))
+        Selection coefficient \(s\)
       
     </span>
   </a>
@@ -1218,7 +1218,7 @@
   <a href="#dominance-coefficient-h" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dominance coefficient (\(h\))
+        Dominance coefficient \(h\)
       
     </span>
   </a>
@@ -1873,29 +1873,17 @@ but <strong>relative fitness values</strong> used to construct a dynamical syste
 </blockquote>
 <p>In population genetics, the fitness scheme acts as the <strong>interface</strong> between:</p>
 <ul>
-<li>
-<p>biological assumptions</p>
-</li>
-<li>
-<p>mathematical formulation</p>
-</li>
-<li>
-<p>dynamical behavior of allele frequencies</p>
-</li>
+<li>biological assumptions</li>
+<li>mathematical formulation</li>
+<li>dynamical behavior of allele frequencies</li>
 </ul>
 <hr />
 <h2 id="2-viability-selection-framework">2. Viability selection framework<a class="headerlink" href="#2-viability-selection-framework" title="Permanent link">&para;</a></h2>
 <p>In the <strong>viability selection</strong> model:</p>
 <ul>
-<li>
-<p>selection acts between <strong>zygote formation and adulthood</strong></p>
-</li>
-<li>
-<p>genotypes differ in their probability of surviving to reproduce</p>
-</li>
-<li>
-<p>population size is implicitly rescaled each generation</p>
-</li>
+<li>selection acts between <strong>zygote formation and adulthood</strong></li>
+<li>genotypes differ in their probability of surviving to reproduce</li>
+<li>population size is implicitly rescaled each generation</li>
 </ul>
 <p>Let the genotype fitnesses be:</p>
 <div class="arithmatex">\[
@@ -1914,34 +1902,24 @@ w_{aa} &amp;= 1 - s
 \]</div>
 <p>where:</p>
 <ul>
-<li>
-<p>( <span class="arithmatex">\(s\)</span> ) = <strong>selection coefficient</strong> (strength of selection)</p>
-</li>
-<li>
-<p>( <span class="arithmatex">\(h\)</span> ) = <strong>dominance coefficient</strong> (how heterozygotes compare to homozygotes)</p>
-</li>
+<li><span class="arithmatex">\(s\)</span> = <strong>selection coefficient</strong> (strength of selection)</li>
+<li><span class="arithmatex">\(h\)</span> = <strong>dominance coefficient</strong> (how heterozygotes compare to homozygotes)</li>
 </ul>
-<p>This parameterization captures most classical selection models by varying (<span class="arithmatex">\(h\)</span>).</p>
+<p>This parameterization captures most classical selection models by varying <span class="arithmatex">\(h\)</span>.</p>
 <hr />
 <h2 id="4-interpretation-of-parameters">4. Interpretation of parameters<a class="headerlink" href="#4-interpretation-of-parameters" title="Permanent link">&para;</a></h2>
-<h3 id="selection-coefficient-s">Selection coefficient (<span class="arithmatex">\(s\)</span>)<a class="headerlink" href="#selection-coefficient-s" title="Permanent link">&para;</a></h3>
+<h3 id="selection-coefficient-s">Selection coefficient <span class="arithmatex">\(s\)</span><a class="headerlink" href="#selection-coefficient-s" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>Measures the fitness disadvantage of genotype (<span class="arithmatex">\(aa\)</span>)</p>
-</li>
-<li>
-<p>(<span class="arithmatex">\(s = 0\)</span>): no selection</p>
-</li>
-<li>
-<p>Larger (<span class="arithmatex">\(s\)</span>): stronger selection against (<span class="arithmatex">\(aa\)</span>)</p>
-</li>
+<li>Measures the fitness disadvantage of genotype <span class="arithmatex">\(aa\)</span></li>
+<li><span class="arithmatex">\(s = 0\)</span>: no selection</li>
+<li>Larger <span class="arithmatex">\(s\)</span>: stronger selection against <span class="arithmatex">\(aa\)</span></li>
 </ul>
-<h3 id="dominance-coefficient-h">Dominance coefficient (<span class="arithmatex">\(h\)</span>)<a class="headerlink" href="#dominance-coefficient-h" title="Permanent link">&para;</a></h3>
+<h3 id="dominance-coefficient-h">Dominance coefficient <span class="arithmatex">\(h\)</span><a class="headerlink" href="#dominance-coefficient-h" title="Permanent link">&para;</a></h3>
 <p>Controls how the heterozygote compares to homozygotes:</p>
 <table>
 <thead>
 <tr>
-<th>(<span class="arithmatex">\(h\)</span>)</th>
+<th><span class="arithmatex">\(h\)</span></th>
 <th>Interpretation</th>
 </tr>
 </thead>
@@ -1976,15 +1954,9 @@ w_{aa} &amp;= 1 - s
 w_{AA} = w_{Aa} = 1,\quad w_{aa} = 1 - s  
 \]</div>
 <ul>
-<li>
-<p>Heterozygotes express the beneficial allele</p>
-</li>
-<li>
-<p>Selection is effective even at low allele frequency</p>
-</li>
-<li>
-<p>(<span class="arithmatex">\(dp/dt \propto sp\)</span>)</p>
-</li>
+<li>Heterozygotes express the beneficial allele</li>
+<li>Selection is effective even at low allele frequency</li>
+<li>(<span class="arithmatex">\(dp/dt \propto sp\)</span>)</li>
 </ul>
 <p><strong>Biological meaning:</strong><br />
 The beneficial allele is visible to selection immediately.</p>
@@ -1994,15 +1966,9 @@ The beneficial allele is visible to selection immediately.</p>
 w_{Aa} = \frac{w_{AA} + w_{aa}}{2}  
 \]</div>
 <ul>
-<li>
-<p>Most commonly used textbook model</p>
-</li>
-<li>
-<p>Symmetric contribution of alleles</p>
-</li>
-<li>
-<p>Smooth allele frequency change</p>
-</li>
+<li>Most commonly used textbook model</li>
+<li>Symmetric contribution of alleles</li>
+<li>Smooth allele frequency change</li>
 </ul>
 <p><strong>Biological meaning:</strong><br />
 Phenotype changes approximately linearly with allele dosage.</p>
@@ -2012,15 +1978,9 @@ Phenotype changes approximately linearly with allele dosage.</p>
 w_{Aa} = w_{aa}  
 \]</div>
 <ul>
-<li>
-<p>Beneficial allele hidden in heterozygotes</p>
-</li>
-<li>
-<p>Very slow increase when rare</p>
-</li>
-<li>
-<p>(<span class="arithmatex">\(dp/dt \propto sp^2\)</span>)</p>
-</li>
+<li>Beneficial allele hidden in heterozygotes</li>
+<li>Very slow increase when rare</li>
+<li>(<span class="arithmatex">\(dp/dt \propto sp^2\)</span>)</li>
 </ul>
 <p><strong>Biological meaning:</strong><br />
 Recessive advantageous mutations struggle to escape low frequency.</p>
@@ -2031,12 +1991,8 @@ Recessive advantageous mutations struggle to escape low frequency.</p>
 \frac{dp}{dt} = F(p)  
 \]</div>
 <ul>
-<li>
-<p>(<span class="arithmatex">\(p\)</span>): allele A frequency</p>
-</li>
-<li>
-<p>(<span class="arithmatex">\(F(p)\)</span>): selection-induced force</p>
-</li>
+<li>(<span class="arithmatex">\(p\)</span>): allele A frequency</li>
+<li>(<span class="arithmatex">\(F(p)\)</span>): selection-induced force</li>
 </ul>
 <p>Fixed points satisfy:<br />
 $$
@@ -2050,105 +2006,57 @@ $$</p>
 <h2 id="7-fixed-points-and-their-meaning">7. Fixed points and their meaning<a class="headerlink" href="#7-fixed-points-and-their-meaning" title="Permanent link">&para;</a></h2>
 <p>For simple directional selection:</p>
 <ul>
-<li>
-<p>(<span class="arithmatex">\(p = 0\)</span>): loss of allele A</p>
-</li>
-<li>
-<p>(<span class="arithmatex">\(p = 1\)</span>): fixation of allele A</p>
-</li>
+<li><span class="arithmatex">\(p = 0\)</span>: loss of allele A</li>
+<li><span class="arithmatex">\(p = 1\)</span>: fixation of allele A</li>
 </ul>
 <p>Stability interpretation:</p>
 <ul>
-<li>
-<p><strong>Stable</strong>: system returns after perturbation</p>
-</li>
-<li>
-<p><strong>Unstable</strong>: any perturbation drives system away</p>
-</li>
+<li><strong>Stable</strong>: system returns after perturbation</li>
+<li><strong>Unstable</strong>: any perturbation drives system away</li>
 </ul>
 <p>⚠️ Important clarification:<br />
-An unstable fixed point (e.g. (<span class="arithmatex">\(p=0\)</span>)) does <strong>not</strong> mean population extinction —<br />
+An unstable fixed point (e.g. <span class="arithmatex">\(p=0\)</span>) does <strong>not</strong> mean population extinction —<br />
 it only means the allele frequency state is unstable.</p>
 <hr />
 <h2 id="8-what-fitness-schemes-do-not-capture">8. What fitness schemes do NOT capture<a class="headerlink" href="#8-what-fitness-schemes-do-not-capture" title="Permanent link">&para;</a></h2>
 <p>Fitness schemes intentionally ignore:</p>
 <ul>
-<li>
-<p>linkage and LD</p>
-</li>
-<li>
-<p>individual ancestry</p>
-</li>
-<li>
-<p>genotype phase</p>
-</li>
-<li>
-<p>finite population stochasticity</p>
-</li>
+<li>linkage and LD</li>
+<li>individual ancestry</li>
+<li>genotype phase</li>
+<li>finite population stochasticity</li>
 </ul>
 <p>These effects are handled by:</p>
 <ul>
-<li>
-<p>drift models</p>
-</li>
-<li>
-<p>multi-locus models</p>
-</li>
-<li>
-<p>coalescent theory</p>
-</li>
+<li>drift models</li>
+<li>multi-locus models</li>
+<li>coalescent theory</li>
 </ul>
 <p>Thus, fitness schemes are <strong>controlled abstractions</strong>, not complete descriptions.</p>
 <hr />
 <h2 id="9-role-of-fitness-schemes-in-population-genetics">9. Role of fitness schemes in population genetics<a class="headerlink" href="#9-role-of-fitness-schemes-in-population-genetics" title="Permanent link">&para;</a></h2>
 <p>Fitness schemes:</p>
 <ul>
-<li>
-<p>define selection models</p>
-</li>
-<li>
-<p>determine equilibrium structure</p>
-</li>
-<li>
-<p>predict fixation vs polymorphism</p>
-</li>
-<li>
-<p>connect biology to dynamical systems</p>
-</li>
+<li>define selection models</li>
+<li>determine equilibrium structure</li>
+<li>predict fixation vs polymorphism</li>
+<li>connect biology to dynamical systems</li>
 </ul>
 <p>They are the <strong>starting point</strong> for:</p>
 <ul>
-<li>
-<p>mutation–selection balance</p>
-</li>
-<li>
-<p>balancing selection</p>
-</li>
-<li>
-<p>selective sweeps</p>
-</li>
-<li>
-<p>phase-plane analysis</p>
-</li>
+<li>mutation–selection balance</li>
+<li>balancing selection</li>
+<li>selective sweeps</li>
+<li>phase-plane analysis</li>
 </ul>
 <hr />
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p><a href="../Selection%28general%29/">Selection(general)</a>]</p>
-</li>
-<li>
-<p><a href="../../../01_Core/00_single_locus/Allele_frequency/">Allele_frequency</a></p>
-</li>
-<li>
-<p><a href="../../../01_Core/Frequency%20dynamics/">Frequency dynamics</a></p>
-</li>
-<li>
-<p><a href="../../Mutation/">Mutation</a></p>
-</li>
-<li>
-<p><a href="../Mutation_selection_balance/">Mutation_selection_balance</a></p>
-</li>
+<li><a href="../Selection%28general%29/">Selection(general)</a></li>
+<li><a href="../../../01_Core/00_single_locus/Allele_frequency/">Allele_frequency</a></li>
+<li><a href="../../../01_Core/Frequency%20dynamics/">Frequency dynamics</a></li>
+<li><a href="../../Mutation/">Mutation</a></li>
+<li><a href="../Mutation_selection_balance/">Mutation_selection_balance</a></li>
 </ul>
 
 

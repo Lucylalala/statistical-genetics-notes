@@ -1840,24 +1840,14 @@ w_{aa} &amp;= 1 - s
 \]</div>
 <p>where:</p>
 <ul>
-<li>
-<p>(<span class="arithmatex">\(s\)</span>) is the selection coefficient</p>
-</li>
-<li>
-<p>(<span class="arithmatex">\(h\)</span>) is the dominance coefficient</p>
-</li>
+<li><span class="arithmatex">\(s\)</span> is the selection coefficient</li>
+<li><span class="arithmatex">\(h\)</span> is the dominance coefficient</li>
 </ul>
 <p>Special cases:</p>
 <ul>
-<li>
-<p>(<span class="arithmatex">\(h = 0\)</span>): complete dominance of (<span class="arithmatex">\(A\)</span>)</p>
-</li>
-<li>
-<p>(<span class="arithmatex">\(h = 1/2\)</span>): additive selection</p>
-</li>
-<li>
-<p>(<span class="arithmatex">\(h = 1\)</span>): complete recessivity of (<span class="arithmatex">\(A\)</span>)</p>
-</li>
+<li><span class="arithmatex">\(h = 0\)</span>: complete dominance of <span class="arithmatex">\(A\)</span></li>
+<li><span class="arithmatex">\(h = 1/2\)</span>: additive selection</li>
+<li><span class="arithmatex">\(h = 1\)</span>: complete recessivity of <span class="arithmatex">\(A\)</span></li>
 </ul>
 <hr />
 <h2 id="3-discrete-time-allele-frequency-change">3. Discrete-time allele frequency change<a class="headerlink" href="#3-discrete-time-allele-frequency-change" title="Permanent link">&para;</a></h2>
@@ -1887,7 +1877,7 @@ s\,p(1-p)\Big[(1-h) + (2h-1)p\Big]
 <p>This equation fully characterizes dominance selection as a nonlinear dynamical system.</p>
 <hr />
 <h2 id="5-low-frequency-behavior-visibility-of-selection">5. Low-frequency behavior: visibility of selection<a class="headerlink" href="#5-low-frequency-behavior-visibility-of-selection" title="Permanent link">&para;</a></h2>
-<p>As (<span class="arithmatex">\(p \to 0\)</span>):</p>
+<p>As <span class="arithmatex">\(p \to 0\)</span>:</p>
 <div class="arithmatex">\[
 \frac{dp}{dt}  
 \approx  
@@ -1903,11 +1893,11 @@ s(1-h)\,p
 </thead>
 <tbody>
 <tr>
-<td>(<span class="arithmatex">\(h &lt; 1\)</span>)</td>
+<td><span class="arithmatex">\(h &lt; 1\)</span></td>
 <td>Selection acts immediately</td>
 </tr>
 <tr>
-<td>(<span class="arithmatex">\(h = 1\)</span>)</td>
+<td><span class="arithmatex">\(h = 1\)</span></td>
 <td>Selection is effectively neutral</td>
 </tr>
 </tbody>
@@ -1918,7 +1908,7 @@ s(1-h)\,p
 <p>This explains the slow initial spread of recessive advantageous mutations.</p>
 <hr />
 <h2 id="6-high-frequency-behavior">6. High-frequency behavior<a class="headerlink" href="#6-high-frequency-behavior" title="Permanent link">&para;</a></h2>
-<p>As (<span class="arithmatex">\(p \to 1\)</span>):
+<p>As <span class="arithmatex">\(p \to 1\)</span>:
 $$
 \frac{dp}{dt}<br />
 \approx<br />
@@ -1930,111 +1920,61 @@ $$</p>
 <h2 id="7-fixed-points-and-phase-line-structure">7. Fixed points and phase-line structure<a class="headerlink" href="#7-fixed-points-and-phase-line-structure" title="Permanent link">&para;</a></h2>
 <p>For (<span class="arithmatex">\(0 \le h \le 1\)</span>):</p>
 <ul>
-<li>
-<p>Fixed points: (<span class="arithmatex">\(p=0\)</span>), (<span class="arithmatex">\(p=1\)</span>)</p>
-</li>
-<li>
-<p>No internal equilibria</p>
-</li>
+<li>Fixed points: (<span class="arithmatex">\(p=0\)</span>), (<span class="arithmatex">\(p=1\)</span>)</li>
+<li>No internal equilibria</li>
 </ul>
 <p>Phase-line interpretation:</p>
 <ul>
-<li>
-<p>(<span class="arithmatex">\(p=0\)</span>): unstable</p>
-</li>
-<li>
-<p>(<span class="arithmatex">\(p=1\)</span>): stable</p>
-</li>
+<li><span class="arithmatex">\(p=0\)</span>: unstable</li>
+<li><span class="arithmatex">\(p=1\)</span>: stable</li>
 </ul>
 <p>Dominance modifies the <strong>speed</strong>, not the <strong>direction</strong>, of evolution.</p>
 <hr />
 <h2 id="8-dominance-vs-additive-selection">8. Dominance vs additive selection<a class="headerlink" href="#8-dominance-vs-additive-selection" title="Permanent link">&para;</a></h2>
-<p>Additive selection ((<span class="arithmatex">\(h=1/2\)</span>)) serves as a baseline:</p>
+<p>Additive selection <span class="arithmatex">\(h=1/2\)</span> serves as a baseline:</p>
 <ul>
-<li>
-<p>symmetric allele contribution</p>
-</li>
-<li>
-<p>linear phenotype–genotype relationship</p>
-</li>
+<li>symmetric allele contribution</li>
+<li>linear phenotype–genotype relationship</li>
 </ul>
 <p>Dominance introduces asymmetry:</p>
 <ul>
-<li>
-<p>early dynamics differ</p>
-</li>
-<li>
-<p>fixation time depends strongly on (<span class="arithmatex">\(h\)</span>)</p>
-</li>
+<li>early dynamics differ</li>
+<li>fixation time depends strongly on <span class="arithmatex">\(h\)</span></li>
 </ul>
 <hr />
 <h2 id="9-biological-interpretation">9. Biological interpretation<a class="headerlink" href="#9-biological-interpretation" title="Permanent link">&para;</a></h2>
 <p>Dominance reflects:</p>
 <ul>
-<li>
-<p>gene regulation</p>
-</li>
-<li>
-<p>protein dosage</p>
-</li>
-<li>
-<p>metabolic buffering</p>
-</li>
-<li>
-<p>developmental thresholds</p>
-</li>
+<li>gene regulation</li>
+<li>protein dosage</li>
+<li>metabolic buffering</li>
+<li>developmental thresholds</li>
 </ul>
 <p>It connects molecular biology to population-level dynamics.</p>
 <hr />
 <h2 id="10-conceptual-role-of-dominance-selection">10. Conceptual role of dominance selection<a class="headerlink" href="#10-conceptual-role-of-dominance-selection" title="Permanent link">&para;</a></h2>
 <p>Dominance selection shows that:</p>
 <ul>
-<li>
-<p>selection strength is frequency dependent</p>
-</li>
-<li>
-<p>visibility matters more than ultimate advantage</p>
-</li>
-<li>
-<p>early stochastic effects (drift) interact strongly with dominance</p>
-</li>
+<li>selection strength is frequency dependent</li>
+<li>visibility matters more than ultimate advantage</li>
+<li>early stochastic effects (drift) interact strongly with dominance</li>
 </ul>
 <p>This prepares the ground for:</p>
 <ul>
-<li>
-<p>overdominance</p>
-</li>
-<li>
-<p>underdominance</p>
-</li>
-<li>
-<p>mutation–selection balance with dominance</p>
-</li>
+<li>overdominance</li>
+<li>underdominance</li>
+<li>mutation–selection balance with dominance</li>
 </ul>
 <hr />
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p><a href="../Selection%28general%29/">Selection(general)</a></p>
-</li>
-<li>
-<p><a href="../Fitness_scheme/">Fitness_scheme</a></p>
-</li>
-<li>
-<p><a href="../Selection_continuous/">Selection_continuous</a></p>
-</li>
-<li>
-<p><a href="../Mutation_selection_balance/">Mutation_selection_balance</a></p>
-</li>
-<li>
-<p><a href="../Overdominance/">Overdominance</a></p>
-</li>
-<li>
-<p><a href="../Underdominace/">Underdominace</a></p>
-</li>
-<li>
-<p><a href="../../Genetic%20drift/">Genetic drift</a></p>
-</li>
+<li><a href="../Selection%28general%29/">Selection(general)</a></li>
+<li><a href="../Fitness_scheme/">Fitness_scheme</a></li>
+<li><a href="../Selection_continuous/">Selection_continuous</a></li>
+<li><a href="../Mutation_selection_balance/">Mutation_selection_balance</a></li>
+<li><a href="../Overdominance/">Overdominance</a></li>
+<li><a href="../Underdominace/">Underdominace</a></li>
+<li><a href="../../Genetic%20drift/">Genetic drift</a></li>
 </ul>
 <hr />
 <blockquote>

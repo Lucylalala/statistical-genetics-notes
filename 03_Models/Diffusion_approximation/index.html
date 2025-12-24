@@ -1936,12 +1936,8 @@ t = \frac{\tau}{2N}<br />
 $$</p>
 <p>Interpretation:</p>
 <ul>
-<li>
-<p>Each generation contributes a fluctuation of order <span class="arithmatex">\(1/N\)</span></p>
-</li>
-<li>
-<p>Over <span class="arithmatex">\(O(N)\)</span> generations, these fluctuations accumulate</p>
-</li>
+<li>Each generation contributes a fluctuation of order <span class="arithmatex">\(1/N\)</span></li>
+<li>Over <span class="arithmatex">\(O(N)\)</span> generations, these fluctuations accumulate</li>
 </ul>
 <p>This rescaling is essential and not optional.</p>
 <hr />
@@ -1954,15 +1950,9 @@ dp(t) = M(p)\,dt + \sqrt{V(p)}\,dW_t<br />
 $$</p>
 <p>where:</p>
 <ul>
-<li>
-<p><span class="arithmatex">\(W_t\)</span> is standard Brownian motion</p>
-</li>
-<li>
-<p><span class="arithmatex">\(M(p)\)</span> is the deterministic drift term</p>
-</li>
-<li>
-<p><span class="arithmatex">\(V(p)\)</span> is the diffusion (variance) term</p>
-</li>
+<li><span class="arithmatex">\(W_t\)</span> is standard Brownian motion</li>
+<li><span class="arithmatex">\(M(p)\)</span> is the deterministic drift term</li>
+<li><span class="arithmatex">\(V(p)\)</span> is the diffusion (variance) term</li>
 </ul>
 <hr />
 <h2 id="6-wrightfisher-diffusion-neutral-case">6. Wright–Fisher diffusion (neutral case)<a class="headerlink" href="#6-wrightfisher-diffusion-neutral-case" title="Permanent link">&para;</a></h2>
@@ -1974,15 +1964,9 @@ dp(t) = \sqrt{p(1-p)}\,dW_t<br />
 $$</p>
 <p>Key properties:</p>
 <ul>
-<li>
-<p>No deterministic trend</p>
-</li>
-<li>
-<p>State-dependent noise</p>
-</li>
-<li>
-<p>Absorbing boundaries at <span class="arithmatex">\(p=0\)</span> and <span class="arithmatex">\(p=1\)</span></p>
-</li>
+<li>No deterministic trend</li>
+<li>State-dependent noise</li>
+<li>Absorbing boundaries at <span class="arithmatex">\(p=0\)</span> and <span class="arithmatex">\(p=1\)</span></li>
 </ul>
 <p>This process is known as the <strong>Wright–Fisher diffusion</strong>.</p>
 <hr />
@@ -2000,12 +1984,8 @@ s\,p(1-p)\,dt<br />
 $$</p>
 <p>Interpretation:</p>
 <ul>
-<li>
-<p>Selection determines the <strong>direction</strong> of change</p>
-</li>
-<li>
-<p>Drift determines the <strong>uncertainty</strong> around that direction</p>
-</li>
+<li>Selection determines the <strong>direction</strong> of change</li>
+<li>Drift determines the <strong>uncertainty</strong> around that direction</li>
 </ul>
 <p>This decomposition formalizes the orthogonality of selection and drift.</p>
 <hr />
@@ -2031,15 +2011,11 @@ $$</p>
 <h2 id="9-boundary-behavior-and-fixation">9. Boundary behavior and fixation<a class="headerlink" href="#9-boundary-behavior-and-fixation" title="Permanent link">&para;</a></h2>
 <p>In the diffusion framework:</p>
 <ul>
-<li>
-<p><span class="arithmatex">\(p=0\)</span> and <span class="arithmatex">\(p=1\)</span> are absorbing boundaries</p>
-</li>
-<li>
-<p>Fixation probability under neutrality:<br />
+<li><span class="arithmatex">\(p=0\)</span> and <span class="arithmatex">\(p=1\)</span> are absorbing boundaries</li>
+<li>Fixation probability under neutrality:<br />
 $$
     P_{\mathrm{fix}}(p_0) = p_0<br />
-    $$</p>
-</li>
+    $$</li>
 <li>Expected fixation time scales with effective population size</li>
 </ul>
 <p>Diffusion theory reproduces all classical Wright–Fisher fixation results in continuous time.</p>
@@ -2047,15 +2023,9 @@ $$
 <h2 id="10-conceptual-interpretation">10. Conceptual interpretation<a class="headerlink" href="#10-conceptual-interpretation" title="Permanent link">&para;</a></h2>
 <p>Diffusion approximation shows that:</p>
 <ul>
-<li>
-<p>Genetic drift is not an ad hoc noise term</p>
-</li>
-<li>
-<p>It emerges naturally from finite sampling</p>
-</li>
-<li>
-<p>Its strength is inversely proportional to effective population size</p>
-</li>
+<li>Genetic drift is not an ad hoc noise term</li>
+<li>It emerges naturally from finite sampling</li>
+<li>Its strength is inversely proportional to effective population size</li>
 </ul>
 <p>From this perspective:</p>
 <blockquote>
@@ -2074,46 +2044,26 @@ SFS / LD / GWAS
 </code></pre></div>
 <p>It forms the bridge between:</p>
 <ul>
-<li>
-<p>Forward-time stochastic dynamics</p>
-</li>
-<li>
-<p>Backward-time genealogical processes</p>
-</li>
+<li>Forward-time stochastic dynamics</li>
+<li>Backward-time genealogical processes</li>
 </ul>
 <hr />
 <h2 id="12-what-diffusion-approximation-enables">12. What diffusion approximation enables<a class="headerlink" href="#12-what-diffusion-approximation-enables" title="Permanent link">&para;</a></h2>
 <p>Only within the diffusion framework can one:</p>
 <ul>
-<li>
-<p>Derive continuous-time fixation statistics</p>
-</li>
-<li>
-<p>Construct likelihood-based inference</p>
-</li>
-<li>
-<p>Incorporate time-varying population size</p>
-</li>
-<li>
-<p>Connect allele frequencies to coalescent genealogies</p>
-</li>
-<li>
-<p>Interpret GWAS kinship matrices as covariance structures</p>
-</li>
+<li>Derive continuous-time fixation statistics</li>
+<li>Construct likelihood-based inference</li>
+<li>Incorporate time-varying population size</li>
+<li>Connect allele frequencies to coalescent genealogies</li>
+<li>Interpret GWAS kinship matrices as covariance structures</li>
 </ul>
 <hr />
 <h2 id="13-limitations">13. Limitations<a class="headerlink" href="#13-limitations" title="Permanent link">&para;</a></h2>
 <p>Diffusion approximation assumes:</p>
 <ul>
-<li>
-<p>Large effective population size</p>
-</li>
-<li>
-<p>Small per-generation changes</p>
-</li>
-<li>
-<p>Weak selection, mutation, and migration</p>
-</li>
+<li>Large effective population size</li>
+<li>Small per-generation changes</li>
+<li>Weak selection, mutation, and migration</li>
 </ul>
 <p>It is an approximation, but a <strong>controlled and principled one</strong>.</p>
 <hr />
@@ -2125,24 +2075,12 @@ SFS / LD / GWAS
 <hr />
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p><a href="../Wright_Fisher_model/">Wright_Fisher_model</a></p>
-</li>
-<li>
-<p><a href="../../02_Processes/Genetic%20drift/">Genetic drift</a></p>
-</li>
-<li>
-<p><a href="../../02_Processes/Selection/Selection_continuous/">Selection_continuous</a></p>
-</li>
-<li>
-<p><a href="../Coalescent_theory/">Coalescent_theory</a></p>
-</li>
-<li>
-<p><a href="../../01_Core/02_Structual_state/Population_structure/">Population_structure</a></p>
-</li>
-<li>
-<p><a href="../../04_Statistics/GWAS_K_matrix/">GWAS_K_matrix</a></p>
-</li>
+<li><a href="../Wright_Fisher_model/">Wright_Fisher_model</a></li>
+<li><a href="../../02_Processes/Genetic%20drift/">Genetic drift</a></li>
+<li><a href="../../02_Processes/Selection/Selection_continuous/">Selection_continuous</a></li>
+<li><a href="../Coalescent_theory/">Coalescent_theory</a></li>
+<li><a href="../../01_Core/02_Structual_state/Population_structure/">Population_structure</a></li>
+<li><a href="../../04_Statistics/GWAS_K_matrix/">GWAS_K_matrix</a></li>
 </ul>
 <hr />
 

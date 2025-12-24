@@ -1896,39 +1896,23 @@
 <h2 id="2-migration-as-a-deterministic-force">2. Migration as a deterministic force<a class="headerlink" href="#2-migration-as-a-deterministic-force" title="Permanent link">&para;</a></h2>
 <p>Unlike genetic drift:</p>
 <ul>
-<li>
-<p>migration does <strong>not</strong> arise from randomness</p>
-</li>
-<li>
-<p>it has a <strong>direction and magnitude</strong></p>
-</li>
-<li>
-<p>it does <strong>not</strong> require finite population size (<span class="arithmatex">\(N\)</span>)</p>
-</li>
+<li>migration does <strong>not</strong> arise from randomness</li>
+<li>it has a <strong>direction and magnitude</strong></li>
+<li>it does <strong>not</strong> require finite population size (<span class="arithmatex">\(N\)</span>)</li>
 </ul>
 <p>Mathematically, migration defines a <strong>deterministic mapping</strong> on allele-frequency space.</p>
 <p>This places migration in the same conceptual category as:</p>
 <ul>
-<li>
-<p>mutation</p>
-</li>
-<li>
-<p>selection</p>
-</li>
+<li>mutation</li>
+<li>selection</li>
 </ul>
 <hr />
 <h2 id="3-the-simplest-model-one-population-receiving-migrants">3. The simplest model: one population receiving migrants<a class="headerlink" href="#3-the-simplest-model-one-population-receiving-migrants" title="Permanent link">&para;</a></h2>
 <h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>Focal population with allele frequency (<span class="arithmatex">\(p_t\)</span>)</p>
-</li>
-<li>
-<p>Source population with allele frequency (<span class="arithmatex">\(p_m\)</span>)</p>
-</li>
-<li>
-<p>Migration rate (<span class="arithmatex">\(m\)</span>): fraction of individuals replaced by migrants each generation</p>
-</li>
+<li>Focal population with allele frequency (<span class="arithmatex">\(p_t\)</span>)</li>
+<li>Source population with allele frequency (<span class="arithmatex">\(p_m\)</span>)</li>
+<li>Migration rate (<span class="arithmatex">\(m\)</span>): fraction of individuals replaced by migrants each generation</li>
 </ul>
 <h3 id="update-rule">Update rule<a class="headerlink" href="#update-rule" title="Permanent link">&para;</a></h3>
 <div class="arithmatex">\[
@@ -1940,12 +1924,8 @@ p_{t+1}
 \]</div>
 <p>Interpretation:</p>
 <ul>
-<li>
-<p>fraction (<span class="arithmatex">\(1-m\)</span>): local reproduction</p>
-</li>
-<li>
-<p>fraction (<span class="arithmatex">\(m\)</span>): migrant contribution</p>
-</li>
+<li>fraction (<span class="arithmatex">\(1-m\)</span>): local reproduction</li>
+<li>fraction (<span class="arithmatex">\(m\)</span>): migrant contribution</li>
 </ul>
 <hr />
 <h2 id="4-continuous-time-limit">4. Continuous-time limit<a class="headerlink" href="#4-continuous-time-limit" title="Permanent link">&para;</a></h2>
@@ -1970,12 +1950,8 @@ p^* = p_m
 <hr />
 <h3 id="stability">Stability<a class="headerlink" href="#stability" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>If (<span class="arithmatex">\(p &gt; p_m\)</span>): migration decreases (<span class="arithmatex">\(p\)</span>)</p>
-</li>
-<li>
-<p>If (<span class="arithmatex">\(p &lt; p_m\)</span>): migration increases (<span class="arithmatex">\(p\)</span>)</p>
-</li>
+<li>If (<span class="arithmatex">\(p &gt; p_m\)</span>): migration decreases (<span class="arithmatex">\(p\)</span>)</li>
+<li>If (<span class="arithmatex">\(p &lt; p_m\)</span>): migration increases (<span class="arithmatex">\(p\)</span>)</li>
 </ul>
 <p>Thus:</p>
 <div class="arithmatex">\[  
@@ -1989,15 +1965,9 @@ p^* = p_m \quad \text{is globally stable}
 \frac{dp}{dt} = -m(p - p_m)  
 \]</div>
 <ul>
-<li>
-<p>Direction: toward (<span class="arithmatex">\(p_m\)</span>)</p>
-</li>
-<li>
-<p>Strength: proportional to distance from (<span class="arithmatex">\(p_m\)</span>)</p>
-</li>
-<li>
-<p>Shape: linear (no nonlinearity)</p>
-</li>
+<li>Direction: toward (<span class="arithmatex">\(p_m\)</span>)</li>
+<li>Strength: proportional to distance from (<span class="arithmatex">\(p_m\)</span>)</li>
+<li>Shape: linear (no nonlinearity)</li>
 </ul>
 <p>Migration creates a <strong>single attractor</strong> in allele-frequency space.</p>
 <hr />
@@ -2011,15 +1981,9 @@ p^* = p_m \quad \text{is globally stable}
 \]</div>
 <p>Properties:</p>
 <ul>
-<li>
-<p>difference (<span class="arithmatex">\(p_1 - p_2\)</span>) decays exponentially</p>
-</li>
-<li>
-<p>populations converge to a common frequency</p>
-</li>
-<li>
-<p>total mean frequency is conserved</p>
-</li>
+<li>difference (<span class="arithmatex">\(p_1 - p_2\)</span>) decays exponentially</li>
+<li>populations converge to a common frequency</li>
+<li>total mean frequency is conserved</li>
 </ul>
 <p>This introduces <strong>population structure</strong> without randomness.</p>
 <hr />
@@ -2104,12 +2068,8 @@ p^* = p_m \quad \text{is globally stable}
 <h2 id="10-migrationselection-balance-conceptual-preview">10. Migration–selection balance (conceptual preview)<a class="headerlink" href="#10-migrationselection-balance-conceptual-preview" title="Permanent link">&para;</a></h2>
 <p>When migration and selection act together:</p>
 <ul>
-<li>
-<p>migration pulls allele frequencies toward the source</p>
-</li>
-<li>
-<p>selection pulls frequencies toward local optima</p>
-</li>
+<li>migration pulls allele frequencies toward the source</li>
+<li>selection pulls frequencies toward local optima</li>
 </ul>
 <p>Balance occurs when:</p>
 <div class="arithmatex">\[  
@@ -2117,88 +2077,46 @@ p^* = p_m \quad \text{is globally stable}
 \]</div>
 <p>This explains:</p>
 <ul>
-<li>
-<p>local adaptation</p>
-</li>
-<li>
-<p>clines</p>
-</li>
-<li>
-<p>tension zones</p>
-</li>
+<li>local adaptation</li>
+<li>clines</li>
+<li>tension zones</li>
 </ul>
 <p>(Details developed in later modules.)</p>
 <hr />
 <h2 id="11-what-migration-does-not-capture">11. What migration does NOT capture<a class="headerlink" href="#11-what-migration-does-not-capture" title="Permanent link">&para;</a></h2>
 <p>Migration models intentionally ignore:</p>
 <ul>
-<li>
-<p>stochastic sampling (drift)</p>
-</li>
-<li>
-<p>ancestry and genealogies</p>
-</li>
-<li>
-<p>haplotype structure</p>
-</li>
-<li>
-<p>linkage disequilibrium</p>
-</li>
+<li>stochastic sampling (drift)</li>
+<li>ancestry and genealogies</li>
+<li>haplotype structure</li>
+<li>linkage disequilibrium</li>
 </ul>
 <p>These require:</p>
 <ul>
-<li>
-<p>genetic drift</p>
-</li>
-<li>
-<p>recombination</p>
-</li>
-<li>
-<p>coalescent theory</p>
-</li>
+<li>genetic drift</li>
+<li>recombination</li>
+<li>coalescent theory</li>
 </ul>
 <hr />
 <h2 id="12-conceptual-role-of-migration-in-population-genetics">12. Conceptual role of migration in population genetics<a class="headerlink" href="#12-conceptual-role-of-migration-in-population-genetics" title="Permanent link">&para;</a></h2>
 <p>Migration:</p>
 <ul>
-<li>
-<p>introduces population structure deterministically</p>
-</li>
-<li>
-<p>counteracts divergence</p>
-</li>
-<li>
-<p>sets the stage for drift-based differentiation</p>
-</li>
-<li>
-<p>provides the backbone for (F_{ST}) theory</p>
-</li>
+<li>introduces population structure deterministically</li>
+<li>counteracts divergence</li>
+<li>sets the stage for drift-based differentiation</li>
+<li>provides the backbone for (F_{ST}) theory</li>
 </ul>
 <p>Migration is the <strong>last purely deterministic process</strong> before entering stochastic population genetics.</p>
 <hr />
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p><a href="../../01_Core/00_single_locus/Allele_frequency/">Allele_frequency</a></p>
-</li>
-<li>
-<p><a href="../../01_Core/Frequency%20dynamics/">Frequency dynamics</a></p>
-</li>
-<li>
-<p><a href="../Mutation/">Mutation</a></p>
-</li>
-<li>
-<p><a href="../Selection/Selection%28general%29/">Selection(general)</a></p>
-</li>
-<li>
-<p><a href="../Selection/Selection_continuous/">Selection_continuous</a></p>
-</li>
-<li>
-<p><a href="../Genetic%20drift/">Genetic drift</a></p>
-</li>
-<li>
-<p><a href="../../01_Core/02_Structual_state/Population_structure/">Population_structure</a></p>
-</li>
+<li><a href="../../01_Core/00_single_locus/Allele_frequency/">Allele_frequency</a></li>
+<li><a href="../../01_Core/Frequency%20dynamics/">Frequency dynamics</a></li>
+<li><a href="../Mutation/">Mutation</a></li>
+<li><a href="../Selection/Selection%28general%29/">Selection(general)</a></li>
+<li><a href="../Selection/Selection_continuous/">Selection_continuous</a></li>
+<li><a href="../Genetic%20drift/">Genetic drift</a></li>
+<li><a href="../../01_Core/02_Structual_state/Population_structure/">Population_structure</a></li>
 </ul>
 <hr />
 <blockquote>
