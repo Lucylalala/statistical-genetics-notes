@@ -17,7 +17,6 @@ From a dynamical systems perspective, balancing selection corresponds to a **sta
 Let
 
 - $p$ = frequency of allele $A$
-    
 - $p \in [0,1]$
     
 Allele frequency dynamics are described by:
@@ -29,7 +28,6 @@ $$
 Under balancing selection:
 
 - $f(p) > 0$  when $p < p^*$
-    
 - $f(p) < 0$  when $p > p^*$ 
     
 Thus, trajectories are **attracted toward ( $p^*$ )**.
@@ -44,7 +42,6 @@ Balancing selection produces a **single internal attractor**:
 ```
 
 - $p = 0$, $p = 1$: unstable fixed points
-    
 - $p = p^*$: stable equilibrium
     
 
@@ -80,9 +77,7 @@ This equilibrium is **globally stable** under deterministic dynamics.
 ### 4.3 Interpretation
 
 - Selection disfavors both homozygotes
-    
 - Rare alleles are protected
-    
 - Allele frequencies are “pulled back” toward the center
     
 
@@ -103,7 +98,6 @@ w_A = w_A(p), \quad \frac{dw_A}{dp} < 0
 $$
 
 - Rare alleles enjoy higher fitness
-    
 - Common in host–pathogen interactions and mating systems
     
 
@@ -114,7 +108,6 @@ $$
 Different environments favor different alleles:
 
 - Migration + local selection
-    
 - Temporal environmental fluctuations
     
 
@@ -127,11 +120,8 @@ Averaging across space or time can generate a **stable internal equilibrium**.
 Balancing selection has **distinct genealogical signatures**:
 
 - Extended coalescent times
-    
 - Deep genealogies near selected loci
-    
 - Maintenance of ancient allelic lineages
-    
 
 This contrasts sharply with background selection, which shortens coalescent times.
 
@@ -141,14 +131,10 @@ This contrasts sharply with background selection, which shortens coalescent time
 
 Balancing selection produces recognizable population-genetic patterns:
 
-- Elevated nucleotide diversity (π)
-    
+- Elevated nucleotide diversity $π$
 - Excess of intermediate-frequency variants
-    
 - Positive Tajima’s D
-    
 - Long-range LD around selected sites
-    
 
 These signatures form the basis of **balancing-selection scans**.
 
@@ -159,26 +145,22 @@ These signatures form the basis of **balancing-selection scans**.
 In finite populations:
 
 - Balancing selection counteracts drift
-    
 - Strong enough selection stabilizes polymorphism
-    
 - Weak balancing selection may be overwhelmed by drift
-    
 
 Thus, persistence depends on the relative strength of:  
 $$
 N_e s  
 $$
-
 ---
 
 ## 9. Conceptual contrast
 
-|Regime|Outcome|Diversity|Fixed points|
-|---|---|---|---|
-|Directional selection|Fixation|↓|Boundary only|
-|Balancing selection|Polymorphism|↑|Internal stable|
-|Background selection|Loss of variation|↓↓|Boundary only|
+| Regime                | Outcome           | Diversity | Fixed points    |
+| --------------------- | ----------------- | --------- | --------------- |
+| Directional selection | Fixation          | ↓         | Boundary only   |
+| Balancing selection   | Polymorphism      | ↑         | Internal stable |
+| Background selection  | Loss of variation | ↓↓        | Boundary only   |
 
 ---
 
@@ -193,14 +175,9 @@ It maintains genetic variation by introducing **negative feedback** on allele fr
 ## Links
 
 - [[Overdominance]]
-    
 - [[Underdominace]]
-    
 - [[Selection_continuous]]
-    
 - [[Genetic drift]]
-    
 - [[Site_frequency_spectrum]]
-    
 - [[Coalescent_theory]]
     

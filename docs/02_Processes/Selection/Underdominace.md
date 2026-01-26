@@ -30,9 +30,7 @@ $$
 Here:
 
 - both homozygotes have equal fitness,
-    
 - the heterozygote is selected against.
-    
 
 An asymmetric generalization is:
 
@@ -77,11 +75,8 @@ where ($G(p)$) changes sign at an internal point, reflecting frequency-dependent
 The system has three equilibria:
 
 - ($p = 0$)
-    
 - ($p = 1$)
-    
 - an internal equilibrium ($p^*$) (typically ($p^* = 1/2)$ in the symmetric case)
-    
 
 ---
 
@@ -90,9 +85,7 @@ The system has three equilibria:
 ### Boundary equilibria
 
 - ($p=0$): **stable**
-    
 - ($p=1$): **stable**
-    
 
 Both pure states are attractors.
 
@@ -103,9 +96,7 @@ Both pure states are attractors.
 The internal equilibrium satisfies:
 
 - if ($p < p^*$): ($\frac{dp}{dt} < 0$)
-    
 - if ($p > p^*$): ($\frac{dp}{dt} > 0$)
-    
 
 Thus:
 $$
@@ -130,9 +121,7 @@ The phase-line structure is:
 Interpretation:
 
 - initial conditions determine the evolutionary outcome,
-    
 - trajectories diverge away from the internal equilibrium,
-    
 - the system evolves toward one of two alternative fixations.
     
 
@@ -148,9 +137,7 @@ The key mechanism underlying underdominance is:
 Consequences:
 
 - rare alleles are penalized,
-    
 - majority alleles are favored,
-    
 - selection amplifies initial asymmetries.
     
 
@@ -163,7 +150,6 @@ This produces **positive frequency-dependent selection**.
 Underdominance introduces a **critical frequency threshold**:
 
 - if ($p_0 < p^*$) → allele ($A$) is eliminated
-    
 - if ($p_0 > p^*$) → allele ($A$) fixes
     
 
@@ -190,20 +176,14 @@ These two cases represent **topologically opposite selection regimes**.
 Underdominance arises in contexts such as:
 
 - chromosomal rearrangements (e.g. inversions, translocations)
-    
 - hybrid incompatibilities
-    
 - engineered gene drives with release thresholds
-    
 - tension zones between diverging populations
-    
 
 It plays a key role in:
 
 - speciation theory
-    
 - maintenance of sharp clines
-    
 - bistable evolutionary systems
     
 
@@ -214,11 +194,8 @@ It plays a key role in:
 Underdominance demonstrates that:
 
 - selection can be bistable,
-    
 - polymorphism is not always maintained,
-    
 - equilibrium structure depends on frequency dependence,
-    
 - history and initial conditions matter.
     
 
@@ -229,17 +206,11 @@ It is the canonical model of **threshold selection**.
 ## Links
 
 - [[Dominance_selection]]
-    
 - [[Overdominance]]
-    
 - [[Selection(general)]]
-    
 - [[Selection_continuous]]
-    
 - [[Genetic drift]]
-    
 - [[Balancing_selection]]
-    
 - [[Speciation]]
     
 

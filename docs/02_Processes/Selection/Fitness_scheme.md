@@ -9,12 +9,8 @@ It translates biological assumptions about survival or reproduction into **relat
 In population genetics, the fitness scheme acts as the **interface** between:
 
 - biological assumptions
-    
 - mathematical formulation
-    
 - dynamical behavior of allele frequencies
-    
-
 ---
 
 ## 2. Viability selection framework
@@ -22,9 +18,7 @@ In population genetics, the fitness scheme acts as the **interface** between:
 In the **viability selection** model:
 
 - selection acts between **zygote formation and adulthood**
-    
 - genotypes differ in their probability of surviving to reproduce
-    
 - population size is implicitly rescaled each generation
     
 
@@ -53,37 +47,32 @@ $$
 
 where:
 
-- ( $s$ ) = **selection coefficient** (strength of selection)
-    
-- ( $h$ ) = **dominance coefficient** (how heterozygotes compare to homozygotes)
-    
+- $s$ = **selection coefficient** (strength of selection)
+- $h$ = **dominance coefficient** (how heterozygotes compare to homozygotes)
 
-This parameterization captures most classical selection models by varying ($h$).
+This parameterization captures most classical selection models by varying $h$.
 
 ---
 
 ## 4. Interpretation of parameters
 
-### Selection coefficient ($s$)
+### Selection coefficient $s$
 
-- Measures the fitness disadvantage of genotype ($aa$)
-    
-- ($s = 0$): no selection
-    
-- Larger ($s$): stronger selection against ($aa$)
-    
+- Measures the fitness disadvantage of genotype $aa$
+- $s = 0$: no selection
+- Larger $s$: stronger selection against $aa$
 
-### Dominance coefficient ($h$)
+### Dominance coefficient $h$
 
 Controls how the heterozygote compares to homozygotes:
 
-| ($h$) | Interpretation                             |
-| ----- | ------------------------------------------ |
-| 0     | complete dominance of $A$                  |
-| 1/2   | additive (codominant)                      |
-| 1     | complete recessivity of $A$                |
-| < 0   | overdominance (heterozygote advantage)     |
-| > 1   | underdominance (heterozygote disadvantage) |
+| $h$ | Interpretation                             |
+| --- | ------------------------------------------ |
+| 0   | complete dominance of $A$                  |
+| 1/2 | additive (codominant)                      |
+| 1   | complete recessivity of $A$                |
+| < 0 | overdominance (heterozygote advantage)     |
+| > 1 | underdominance (heterozygote disadvantage) |
 
 Thus, **($h$) determines the qualitative structure of the dynamics**, not just the speed.
 
@@ -98,9 +87,7 @@ w_{AA} = w_{Aa} = 1,\quad w_{aa} = 1 - s
 $$
 
 - Heterozygotes express the beneficial allele
-    
 - Selection is effective even at low allele frequency
-    
 - ($dp/dt \propto sp$)
     
 
@@ -116,9 +103,7 @@ w_{Aa} = \frac{w_{AA} + w_{aa}}{2}
 $$
 
 - Most commonly used textbook model
-    
 - Symmetric contribution of alleles
-    
 - Smooth allele frequency change
     
 
@@ -134,9 +119,7 @@ w_{Aa} = w_{aa}
 $$
 
 - Beneficial allele hidden in heterozygotes
-    
 - Very slow increase when rare
-    
 - ($dp/dt \propto sp^2$)
     
 
@@ -154,7 +137,6 @@ $$
 $$
 
 - ($p$): allele A frequency
-    
 - ($F(p)$): selection-induced force
     
 
@@ -173,20 +155,16 @@ The **stability** of these points depends entirely on the fitness scheme.
 
 For simple directional selection:
 
-- ($p = 0$): loss of allele A
-    
-- ($p = 1$): fixation of allele A
-    
+- $p = 0$: loss of allele A
+- $p = 1$: fixation of allele A
 
 Stability interpretation:
 
 - **Stable**: system returns after perturbation
-    
 - **Unstable**: any perturbation drives system away
-    
 
 ⚠️ Important clarification:  
-An unstable fixed point (e.g. ($p=0$)) does **not** mean population extinction —  
+An unstable fixed point (e.g. $p=0$) does **not** mean population extinction —  
 it only means the allele frequency state is unstable.
 
 ---
@@ -196,22 +174,15 @@ it only means the allele frequency state is unstable.
 Fitness schemes intentionally ignore:
 
 - linkage and LD
-    
 - individual ancestry
-    
 - genotype phase
-    
 - finite population stochasticity
-    
 
 These effects are handled by:
 
 - drift models
-    
 - multi-locus models
-    
 - coalescent theory
-    
 
 Thus, fitness schemes are **controlled abstractions**, not complete descriptions.
 
@@ -222,37 +193,25 @@ Thus, fitness schemes are **controlled abstractions**, not complete descriptions
 Fitness schemes:
 
 - define selection models
-    
 - determine equilibrium structure
-    
 - predict fixation vs polymorphism
-    
 - connect biology to dynamical systems
-    
 
 They are the **starting point** for:
 
 - mutation–selection balance
-    
 - balancing selection
-    
 - selective sweeps
-    
 - phase-plane analysis
-    
 
 ---
 
 ## Links
 
-- [[Selection(general)]]]
-    
+- [[Selection(general)]]
 - [[Allele_frequency]]
-    
 - [[Frequency dynamics]]
-    
 - [[Mutation]]
-    
 - [[Mutation_selection_balance]]
     
 

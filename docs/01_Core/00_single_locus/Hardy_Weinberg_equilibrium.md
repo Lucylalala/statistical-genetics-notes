@@ -15,7 +15,6 @@ the genotype frequencies are:
 $$
 AA : p^2,\quad Aa : 2pq,\quad aa : q^2  
 $$
-
 ---
 
 ## 2. What Hardy–Weinberg is _really_ about 
@@ -30,9 +29,7 @@ In the language of dynamics:
 It defines:
 
 - the _null model_ of population genetics
-    
 - the _baseline state_ against which all deviations are interpreted
-    
 
 ---
 
@@ -41,26 +38,17 @@ It defines:
 Hardy–Weinberg equilibrium holds under the following assumptions:
 
 - random mating
-    
 - infinite population size
-    
 - no selection
-    
 - no mutation
-    
 - no migration
-    
 - no genetic drift
-    
 - no population structure
-    
 - no inbreeding
-    
 
 These assumptions are **not meant to be realistic**, but **diagnostic**.
 
 > Each violation of an assumption corresponds to a specific evolutionary process.
-
 ---
 
 ## 4. Hardy–Weinberg as a fixed point
@@ -68,9 +56,7 @@ These assumptions are **not meant to be realistic**, but **diagnostic**.
 From a dynamical perspective:
 
 - Allele frequencies $p$ are state variables
-    
 - Genotype frequencies are functions of $p$
-    
 
 If no evolutionary forces act:  
 $$
@@ -86,8 +72,8 @@ $$
 Thus, Hardy–Weinberg represents a **neutral equilibrium state** of the system.
 
 ---
-
 ## 5. Separation of timescales
+
 A key theoretical insight is that:
 
 > **Genotype frequencies relax to Hardy–Weinberg equilibrium faster than allele frequencies change.**
@@ -95,66 +81,40 @@ A key theoretical insight is that:
 This allows population genetics to operate on two levels:
 
 1. **Fast dynamics**
-    
-    - random mating
-        
-    - restoration of HWE each generation
-        
+- random mating
+- restoration of HWE each generation
+ 
 2. **Slow dynamics**
-    
-    - mutation
-        
-    - selection
-        
-    - migration
-        
-    - drift
-        
-
+- mutation
+- selection
+- migration
+- drift
+ 
 This separation justifies:
-
 - working primarily with allele frequencies
-    
 - treating genotype frequencies as quasi-equilibrated
-    
-
 ---
-
 ## 6. Hardy–Weinberg as a null model
 
 Hardy–Weinberg equilibrium functions as the **null hypothesis** in population genetics.
 
 Observed deviation from HWE implies the presence of at least one process:
-
 - selection
-    
 - inbreeding
-    
 - population structure
-    
 - assortative mating
-    
 - genetic drift
-    
 - genotyping error (in applied contexts)
-    
-
 However:
-
 > **Deviation from HWE is not inherently a problem — it is information.**
-
 ---
-
 ## 7. What Hardy–Weinberg does NOT assume
 
 Clarifications to avoid common misconceptions:
 
 - HWE does **not** assume equal fitness
-    
 - HWE does **not** imply absence of evolution forever
-    
 - HWE does **not** describe adaptive dynamics
-    
 
 It simply describes the genetic composition of a population **at a reference state**.
 
@@ -184,15 +144,10 @@ $$
 Hardy–Weinberg equilibrium provides:
 
 - the starting point of frequency dynamics
-    
 - the reference frame for selection models
-    
 - the baseline for drift and diffusion theory
-    
 - the foundation for LD and haplotype theory
-    
 - the statistical null for GWAS quality control
-    
 
 Without HWE, population genetics loses its coordinate system.
 
@@ -203,24 +158,16 @@ Without HWE, population genetics loses its coordinate system.
 > **Hardy–Weinberg equilibrium is not a law of nature,  
 > but a reference state of genetic systems in the absence of evolutionary forces.  
 > It defines the zero point of population genetics.**
-
 ---
 
 ## Links
 
 - [[Allele_frequency]]
-    
 - [[Frequency dynamics]]
-    
 - [[Variance dynamics]]
-    
 - [[Selection(general)]]
-    
 - [[Mutation]]
-    
 - [[Migration]]
-    
 - [[Genetic drift]]
-    
 - [[Linkage_disequilibrium]]
-    
+

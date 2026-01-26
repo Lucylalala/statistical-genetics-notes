@@ -3,9 +3,7 @@
 **Mutation–selection balance** describes the long-term equilibrium that arises when:
 
 - **selection** removes deleterious alleles, and
-    
 - **mutation** continuously introduces them.
-    
 
 Rather than leading to fixation or loss, the system settles at an **internal stable equilibrium**, where opposing evolutionary forces balance.
 
@@ -19,21 +17,15 @@ Rather than leading to fixation or loss, the system settles at an **internal sta
 
 In a pure selection model:
 
-- boundary states (($p=0, p=1$)) are the only equilibria,
-    
+- boundary states $p=0, p=1$are the only equilibria,
 - advantageous alleles fix,
-    
 - deleterious alleles are eliminated.
-    
 
 However, empirical populations show:
 
 - persistent deleterious variation,
-    
 - incomplete purging,
-    
 - stable polymorphism at low frequency.
-    
 
 **Mutation is required to maintain genetic variation.**
 
@@ -43,12 +35,9 @@ However, empirical populations show:
 
 Let:
 
-- ($p$): frequency of allele ($A$)
-    
-- ($\mu$): mutation rate ($A \to a$)
-    
-- ($\nu$): mutation rate ($a \to A$)
-    
+- $p$: frequency of allele $A$
+- $\mu$: mutation rate $A \to a$
+- $\nu$: mutation rate $a \to A$
 
 ### Mutation contribution
 
@@ -61,7 +50,6 @@ $$
 This term:
 
 - increases ($p$) via back-mutation,
-    
 - decreases ($p$) via forward mutation.
     
 
@@ -104,11 +92,8 @@ This is the **canonical textbook model** underlying purifying selection.
 ### Assumptions
 
 - allele ($a$) is deleterious
-    
 - allele ($A$) is wild type
-    
 - complete recessivity: ($h = 0$)
-    
 - no back-mutation: ($\nu = 0$)
     
 
@@ -188,7 +173,6 @@ This is the **mutation–selection balance frequency**.
 Even with strong selection (($s \gg \mu$)):
 
 - deleterious alleles are not eliminated,
-    
 - they persist at low frequency.
     
 
@@ -206,9 +190,7 @@ $$
 $$
 
 - independent of population size,
-    
 - independent of initial frequency,
-    
 - determined by force balance.
     
 
@@ -219,7 +201,6 @@ $$
 The equilibrium ($p^*$) is **stable**:
 
 - if ($p > p^*$): selection dominates → ($p$) decreases
-    
 - if ($p < p^*$): mutation dominates → ($p$) increases
     
 
@@ -238,9 +219,7 @@ p=0      p*                  p=1
 ```
 
 - boundary fixation is prevented,
-    
 - an internal equilibrium emerges,
-    
 - long-term polymorphism is maintained.
     
 
@@ -253,9 +232,7 @@ This marks a **qualitative transition** from pure selection dynamics.
 Mutation–selection balance shows that:
 
 - evolution does not necessarily optimize fitness,
-    
 - equilibrium can occur away from fitness maxima,
-    
 - genetic load is an inevitable consequence of mutation.
     
 
@@ -269,20 +246,15 @@ Mutation–selection balance shows that:
 This framework naturally extends to:
 
 - partial dominance (($h \neq 0$))
-    
 - back-mutation (($\nu > 0$))
-    
 - multiple loci (background selection)
-    
 - diffusion approximations with drift
     
 
 Mutation–selection balance forms the theoretical backbone of:
 
 - genetic load theory,
-    
 - nearly neutral evolution,
-    
 - low-frequency variant architecture in GWAS.
     
 
@@ -291,15 +263,10 @@ Mutation–selection balance forms the theoretical backbone of:
 ## Links
 
 - [[Selection(general)]]
-    
 - [[Selection_continuous]]
-    
 - [[Fitness_scheme]]
-    
 - [[Mutation]]
-    
 - [[Allele_frequency]]
-    
 - [[Background_selection]]
     
 

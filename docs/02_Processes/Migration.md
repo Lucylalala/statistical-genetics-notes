@@ -13,9 +13,7 @@ In population genetics, migration is modeled as a **mixing process** that alters
 Unlike genetic drift:
 
 - migration does **not** arise from randomness
-    
 - it has a **direction and magnitude**
-    
 - it does **not** require finite population size ($N$)
     
 
@@ -24,7 +22,6 @@ Mathematically, migration defines a **deterministic mapping** on allele-frequenc
 This places migration in the same conceptual category as:
 
 - mutation
-    
 - selection
     
 
@@ -35,9 +32,7 @@ This places migration in the same conceptual category as:
 ### Assumptions
 
 - Focal population with allele frequency ($p_t$)
-    
 - Source population with allele frequency ($p_m$)
-    
 - Migration rate ($m$): fraction of individuals replaced by migrants each generation
     
 
@@ -54,7 +49,6 @@ $$
 Interpretation:
 
 - fraction ($1-m$): local reproduction
-    
 - fraction ($m$): migrant contribution
     
 
@@ -92,7 +86,6 @@ The equilibrium allele frequency equals the source population frequency.
 ### Stability
 
 - If ($p > p_m$): migration decreases ($p$)
-    
 - If ($p < p_m$): migration increases ($p$)
     
 
@@ -115,9 +108,7 @@ $$
 $$
 
 - Direction: toward ($p_m$)
-    
 - Strength: proportional to distance from ($p_m$)
-    
 - Shape: linear (no nonlinearity)
     
 
@@ -139,9 +130,7 @@ $$
 Properties:
 
 - difference ($p_1 - p_2$) decays exponentially
-    
 - populations converge to a common frequency
-    
 - total mean frequency is conserved
     
 
@@ -182,7 +171,6 @@ Migration does **not optimize fitness**; it optimizes similarity.
 When migration and selection act together:
 
 - migration pulls allele frequencies toward the source
-    
 - selection pulls frequencies toward local optima
     
 
@@ -195,9 +183,7 @@ $$
 This explains:
 
 - local adaptation
-    
 - clines
-    
 - tension zones
     
 
@@ -210,20 +196,15 @@ This explains:
 Migration models intentionally ignore:
 
 - stochastic sampling (drift)
-    
 - ancestry and genealogies
-    
 - haplotype structure
-    
 - linkage disequilibrium
     
 
 These require:
 
 - genetic drift
-    
 - recombination
-    
 - coalescent theory
     
 
@@ -234,11 +215,8 @@ These require:
 Migration:
 
 - introduces population structure deterministically
-    
 - counteracts divergence
-    
 - sets the stage for drift-based differentiation
-    
 - provides the backbone for (F_{ST}) theory
     
 
@@ -249,17 +227,11 @@ Migration is the **last purely deterministic process** before entering stochasti
 ## Links
 
 - [[Allele_frequency]]
-    
 - [[Frequency dynamics]]
-    
 - [[Mutation]]
-    
 - [[Selection(general)]]
-    
 - [[Selection_continuous]]
-    
 - [[Genetic drift]]
-
 - [[Population_structure]]
     
 

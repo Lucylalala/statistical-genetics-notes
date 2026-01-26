@@ -5,15 +5,12 @@ Genetic drift marks the **transition from deterministic population genetics to s
 Before drift:
 
 - allele-frequency dynamics are deterministic
-    
 - evolution is described by forces (selection, mutation, migration)
     
 With drift:
 
 - evolution becomes a **random process**
-    
 - population size (N) becomes essential
-    
 - fixation and loss become inevitable outcomes
     
 ---
@@ -24,9 +21,7 @@ With drift:
 Key points:
 
 - drift is **not a force**
-    
 - drift has **no direction**
-    
 - drift arises solely from **finite population size**
     
 ---
@@ -52,13 +47,9 @@ This sampling noise is genetic drift.
 ### 3.1 Model assumptions
 
 - diploid population of constant size ($N$)
-    
 - non-overlapping generations
-    
 - random mating
-    
 - no selection, mutation, or migration
-    
 - all gametes sampled independently
     
 
@@ -71,7 +62,6 @@ This is the **pure drift model**.
 Let:
 
 - ($p_t$) = frequency of allele ($A$) at generation ($t$)
-    
 - ($X_{t+1}$) = number of ($A$) alleles in generation ($t+1$)
     
 
@@ -103,7 +93,6 @@ $$
 Interpretation:
 
 - drift is neutral
-    
 - no allele is systematically favored
     
 
@@ -120,9 +109,7 @@ $$
 Implications:
 
 - drift strength ($\propto 1/N$)
-    
 - strongest at intermediate frequencies
-    
 - zero at fixation boundaries
     
 
@@ -135,14 +122,12 @@ This variance term is the **engine of all stochastic effects**.
 Under drift:
 
 - allele frequencies perform a **random walk**
-    
 - boundaries ($p=0$) and ($p=1$) are absorbing
     
 
 Unlike selection:
 
 - there is no restoring force
-    
 - fluctuations accumulate over time
     
 
@@ -155,7 +140,6 @@ Unlike selection:
 Once:
 
 - ($p=0$) → allele lost forever
-    
 - ($p=1$) → allele fixed forever
     
 
@@ -190,7 +174,6 @@ $$
 Special cases:
 
 - single new mutation: ($p_0 = \frac{1}{2N}$)
-    
 - fixation probability is extremely small in large populations
     
 
@@ -205,9 +188,7 @@ Interpretation:
 Expected fixation time (neutral drift):
 
 - scales with population size ($N$)
-    
 - larger populations drift more slowly
-    
 - smaller populations drift rapidly
     
 
@@ -218,7 +199,6 @@ Approximate results:
 Thus:
 
 - drift is weak but persistent
-    
 - long-term consequences are unavoidable
     
 
@@ -246,20 +226,15 @@ Key insight:
 Because drift acts independently in different populations:
 
 - allele frequencies diverge
-    
 - genetic differentiation accumulates
-    
 - relatedness emerges
     
 
 This underlies:
 
 - $F_{ST}
-    
 - kinship matrices (K in GWAS)
-    
 - PCA structure
-    
 - ancestry inference
     
 
@@ -280,7 +255,6 @@ $$
 Where:
 
 - $M(p)$: selection + mutation + migration
-    
 - $dW_t$: Wiener process
     
 This connects:
@@ -294,22 +268,16 @@ This connects:
 ### Explains:
 
 - loss of variation
-    
 - random fixation
-    
 - population differentiation
-    
 - neutral evolution
-    
 - background for selection
     
 
 ### Does not explain:
 
 - adaptation
-    
 - fitness optimization
-    
 - directionality
     
 
@@ -330,23 +298,14 @@ Drift is **the default evolutionary background**.
 ## Links
 
 - [[Hardy_Weinberg_equilibrium]]
-    
 - [[Allele_frequency]]
-    
 - [[Frequency dynamics]]
-    
 - [[Selection(general)]]
-    
 - [[Mutation]]
-    
 - [[Migration]]
-    
 - [[Diffusion_approximation]]
-    
 - [[Coalescent_theory]]
-    
 - [[Population_structure]]
-    
 - [[GWAS_K_matrix]]
     
 

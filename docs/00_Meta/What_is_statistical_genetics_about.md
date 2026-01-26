@@ -28,7 +28,7 @@ A system is dynamical if:
 
 ## Why genetics can be framed dynamically
 
-In population genetics, the state variable is allele frequency (p),
+In population genetics, the state variable is allele frequency $p$,
 and time is measured in generations. Evolutionary forces such as
 selection, drift, mutation and migration define the update rule:
 

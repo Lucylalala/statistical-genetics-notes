@@ -7,15 +7,10 @@ p_{t+1} = f(p_t)
 $$
 
 However, for understanding:
-
 - stability,
-    
 - local behavior near boundaries,
-    
 - dominance effects at low frequency,
-    
-- and the geometric structure of selection,
-    
+- and the geometric structure of selection, 
 
 it is useful to consider a **continuous-time approximation**.
 
@@ -38,8 +33,7 @@ The derivation relies on three key assumptions:
     |p_{t+1} - p_t| \ll 1  
     $$
     
-3. **Time measured in generations can be treated continuously**
-    
+3. **Time measured in generations can be treated continuously*
 
 Under these conditions, the finite difference can be approximated by a derivative:
 
@@ -74,7 +68,6 @@ $$
 where:
 
 - ($w_A$) and ($w_a$) are the **average fitnesses of alleles**,
-    
 - ($\bar w$) is the mean population fitness.
     
 
@@ -133,9 +126,7 @@ This equation defines a **one-dimensional nonlinear dynamical system** on the in
 ### 7.1 The factor ($p(1-p)$)
 
 - Selection requires genetic variation
-    
 - When ($p = 0$) or ($p = 1$), no variation exists
-    
 - Therefore, boundary points are always equilibria
     
 
@@ -154,7 +145,6 @@ $$
 Consequences:
 
 - ($h < 1$): selection is effective at low frequency
-    
 - ($h = 1$): selection is invisible when rare
     
 
@@ -185,14 +175,12 @@ $$
 For directional selection (($0 \le h \le 1$)):
 
 - ($p^* = 0$) — unstable
-    
 - ($p^* = 1$) — stable
     
 
 Interpretation:
 
 - Instability of (p=0) means loss of robustness to perturbation
-    
 - It does **not** imply population extinction
     
 
@@ -210,7 +198,6 @@ $$
 Thus:
 
 - trajectories flow monotonically from ($p=0$) to ($p=1$)
-    
 - selection produces **fixation dynamics**
     
 
@@ -223,20 +210,15 @@ The phase line summarizes this behavior geometrically.
 The continuous-time limit reveals that:
 
 - selection acts as a **deterministic force**
-    
 - dominance controls **visibility**, not direction
-    
 - fixation is a global property of the force field
-    
 - mutation or drift are required to generate interior equilibria
     
 
 This formulation provides the natural foundation for:
 
 - mutation–selection balance
-    
 - diffusion approximations
-    
 - fitness landscapes and potential functions
     
 
@@ -245,12 +227,8 @@ This formulation provides the natural foundation for:
 ## Links
 
 - [[Selection(general)]]
-    
 - [[Fitness_scheme]]
-    
 - [[Allele_frequency]]
-    
 - [[Frequency dynamics]]
-    
 - [[Mutation_selection_balance]]
     

@@ -23,18 +23,15 @@ $$
 
 where:
 
-- ($s$) is the selection coefficient
-    
-- ($h$) is the dominance coefficient
+- $s$ is the selection coefficient
+- $h$ is the dominance coefficient
     
 
 Special cases:
 
-- ($h = 0$): complete dominance of ($A$)
-    
-- ($h = 1/2$): additive selection
-    
-- ($h = 1$): complete recessivity of ($A$)
+- $h = 0$: complete dominance of $A$
+- $h = 1/2$: additive selection
+- $h = 1$: complete recessivity of $A$
     
 
 ---
@@ -78,7 +75,7 @@ This equation fully characterizes dominance selection as a nonlinear dynamical s
 
 ## 5. Low-frequency behavior: visibility of selection
 
-As ($p \to 0$):
+As $p \to 0$:
 
 $$
 \frac{dp}{dt}  
@@ -90,8 +87,8 @@ Implications:
 
 | Dominance | Low-frequency behavior           |
 | --------- | -------------------------------- |
-| ($h < 1$) | Selection acts immediately       |
-| ($h = 1$) | Selection is effectively neutral |
+| $h < 1$   | Selection acts immediately       |
+| $h = 1$   | Selection is effectively neutral |
 
 > Recessive beneficial alleles are invisible to selection when rare.
 
@@ -101,7 +98,7 @@ This explains the slow initial spread of recessive advantageous mutations.
 
 ## 6. High-frequency behavior
 
-As ($p \to 1$):
+As $p \to 1$:
 $$
 \frac{dp}{dt}  
 \approx  
@@ -119,16 +116,12 @@ Selection becomes efficient regardless of dominance once the allele is common.
 For ($0 \le h \le 1$):
 
 - Fixed points: ($p=0$), ($p=1$)
-    
 - No internal equilibria
-    
 
 Phase-line interpretation:
 
-- ($p=0$): unstable
-    
-- ($p=1$): stable
-    
+- $p=0$: unstable
+- $p=1$: stable
 
 Dominance modifies the **speed**, not the **direction**, of evolution.
 
@@ -136,19 +129,15 @@ Dominance modifies the **speed**, not the **direction**, of evolution.
 
 ## 8. Dominance vs additive selection
 
-Additive selection (($h=1/2$)) serves as a baseline:
+Additive selection $h=1/2$ serves as a baseline:
 
 - symmetric allele contribution
-    
 - linear phenotype–genotype relationship
-    
 
 Dominance introduces asymmetry:
 
 - early dynamics differ
-    
-- fixation time depends strongly on ($h$)
-    
+- fixation time depends strongly on $h$
 
 ---
 
@@ -157,11 +146,8 @@ Dominance introduces asymmetry:
 Dominance reflects:
 
 - gene regulation
-    
 - protein dosage
-    
 - metabolic buffering
-    
 - developmental thresholds
     
 
@@ -174,18 +160,14 @@ It connects molecular biology to population-level dynamics.
 Dominance selection shows that:
 
 - selection strength is frequency dependent
-    
 - visibility matters more than ultimate advantage
-    
 - early stochastic effects (drift) interact strongly with dominance
     
 
 This prepares the ground for:
 
 - overdominance
-    
 - underdominance
-    
 - mutation–selection balance with dominance
     
 
@@ -194,19 +176,12 @@ This prepares the ground for:
 ## Links
 
 - [[Selection(general)]]
-    
 - [[Fitness_scheme]]
-    
 - [[Selection_continuous]]
-    
 - [[Mutation_selection_balance]]
-    
 - [[Overdominance]]
-    
 - [[Underdominace]]
-    
 - [[Genetic drift]]
-    
 
 ---
 

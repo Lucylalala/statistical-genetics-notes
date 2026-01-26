@@ -9,9 +9,7 @@ Key point:
 Background selection is **not a force acting directly on neutral alleles**, but an emergent consequence of:
 
 - negative (purifying) selection
-    
 - linkage
-    
 - finite recombination
     
 
@@ -62,7 +60,6 @@ $$
 Instead:
 
 - deleterious backgrounds are continually purged
-    
 - neutral alleles on those backgrounds are lost with them
     
 
@@ -87,7 +84,6 @@ $$
 where:
 
 - $U$ : deleterious mutation rate per region
-    
 - $s$ : selection coefficient
     
 
@@ -104,9 +100,7 @@ Interpretation:
 Under background selection:
 
 - lineages in bad backgrounds are quickly eliminated
-    
 - coalescent events occur faster
-    
 - trees are **shorter and more star-like**
     
 
@@ -134,14 +128,12 @@ This is why background selection **mimics demographic bottlenecks**.
 Background selection is fundamentally a **linkage phenomenon**.
 
 - Strong linkage → strong BGS
-    
 - High recombination → weak BGS
     
 
 Spatial heterogeneity:
 
 - Low recombination regions (centromeres, inversions): strong BGS
-    
 - High recombination regions: near-neutral behavior
     
 
@@ -156,13 +148,9 @@ Thus:
 Background selection produces characteristic population-genetic patterns:
 
 - Reduced nucleotide diversity ($π$)
-    
 - Reduced heterozygosity
-    
 - Excess of rare variants
-    
 - Slightly negative $Tajima’s D$
-    
 - Elevated LD due to reduced effective population size
     
 
@@ -191,9 +179,7 @@ This distinction is crucial in **population genomics inference**.
 Background selection provides the **environment** in which nearly neutral evolution operates:
 
 - Weakly deleterious mutations
-    
 - Drift + purifying selection
-    
 - Reduced effective population size amplifies drift
     
 
@@ -208,20 +194,15 @@ Thus:
 Background selection explains:
 
 - Depletion of common variants in low-recombination regions
-    
 - Enrichment of rare deleterious variants
-    
 - Confounding between selection and demography
-    
 - Apparent heritability differences across genomic regions
     
 
 This links directly to:
 
 - LD structure
-    
 - K-matrix interpretation
-    
 - polygenic architecture
     
 
@@ -234,11 +215,8 @@ This links directly to:
 It:
 
 - erodes variation
-    
 - shortens genealogies
-    
 - reduces effective population size
-    
 - reshapes the statistical baseline of the genome
     
 
@@ -251,11 +229,8 @@ Unlike balancing selection, it does **not** stabilize polymorphism — it silent
 Background selection belongs to:
 
 - ❌ not pure frequency dynamics
-    
 - ❌ not classic force-balance
-    
 - ✅ ancestry-level dynamics
-    
 - ✅ coalescent-modified neutrality
     
 
@@ -266,15 +241,10 @@ It is the **bridge between selection and population genomics**.
 ## Links
 
 - [[Balancing_selection]]
-    
 - [[Selection_continuous]]
-    
 - [[Genetic drift]]
-    
 - [[Coalescent_theory]]
-    
 - [[Site_frequency_spectrum]]
-    
 - [[Linkage_disequilibrium]]
     
 

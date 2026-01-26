@@ -13,7 +13,6 @@ This is a definition based on **fitness ranking**, not parameter values.
 Overdominance represents a qualitative shift in selection dynamics:
 
 - the fitness optimum lies **inside** allele-frequency space,
-    
 - not at the boundaries.
     
 
@@ -35,7 +34,6 @@ $$
 Here:
 
 - both homozygotes are selected against,
-    
 - the heterozygote is optimal.
     
 
@@ -72,9 +70,7 @@ This nonlinear equation defines the overdominance dynamics.
 Solving ($\frac{dp}{dt}=0$) yields three equilibria:
 
 - ($p=0$)
-    
 - ($p=1$)
-    
 - internal equilibrium:  
     $$
     \boxed{  
@@ -111,7 +107,6 @@ The internal equilibrium lies strictly between 0 and 1.
 At ($p^*$):
 
 - if ($p < p^*$): ($\frac{dp}{dt} > 0$)
-    
 - if ($p > p^*$): ($\frac{dp}{dt} < 0$)
     
 
@@ -137,7 +132,6 @@ The overdominance phase line has the structure:
 Interpretation:
 
 - selection pushes allele frequencies away from boundaries,
-    
 - trajectories converge toward the internal attractor.
     
 
@@ -155,7 +149,6 @@ The core mechanism of overdominance is:
 Thus:
 
 - when allele ($A$) is rare, it is favored;
-    
 - when allele ($a$) is rare, it is favored.
     
 
@@ -197,9 +190,7 @@ Thus, overdominance is an **intrinsic balancing selection** mechanism.
 Classic examples include:
 
 - sickle-cell polymorphism in malaria-endemic regions
-    
 - MHC diversity
-    
 - loci contributing to heterosis
     
 
@@ -215,9 +206,7 @@ Note:
 Overdominance demonstrates that:
 
 - selection does not always eliminate variation,
-    
 - equilibrium does not necessarily correspond to fixation,
-    
 - frequency-dependent effects can stabilize diversity.
     
 
@@ -228,17 +217,11 @@ It is the canonical model of **balancing selection**.
 ## Links
 
 - [[Dominance_selection]]
-    
 - [[Selection(general)]]
-    
 - [[Selection_continuous]]
-    
 - [[Mutation_selection_balance]]
-    
 - [[Underdominace]]
-    
 - [[Genetic drift]]
-    
 - [[Balancing_selection]]
     
 

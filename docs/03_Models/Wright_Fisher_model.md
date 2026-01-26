@@ -16,7 +16,6 @@ The classical Wright–Fisher model assumes:
 1. **Finite population size**
     
     - Diploid population of constant size ( $N$ )
-        
     - Total number of gene copies: ( $2N$ )
         
 2. **Non-overlapping generations**
@@ -26,13 +25,11 @@ The classical Wright–Fisher model assumes:
 3. **Random mating**
     
     - No population structure
-        
     - No assortative mating
         
 4. **No selection, mutation, or migration**
     
     - All alleles are selectively neutral
-        
     - Allele frequency changes are purely stochastic
         
 5. **Sampling with replacement**
@@ -99,11 +96,8 @@ $$
 Key consequences:
 
 - Drift strength increases when:
-    
     -  $N$ is small
-        
     - $p_t$ is intermediate
-    
 - Variance goes to zero at  $p = 0$ and  $p = 1$
     
 ---
@@ -111,7 +105,6 @@ Key consequences:
 ## 6. Absorbing boundaries and fixation
 
 - $p = 0$ : loss of allele $A$
-    
 - $p = 1$: fixation of allele $A$
     
 
@@ -124,7 +117,6 @@ $$
 Under pure drift:
 
 - Fixation is inevitable
-    
 - Which allele fixes is random
     
 ---
@@ -140,7 +132,6 @@ $$
 In particular:
 
 - A new mutation appears at frequency ( $\frac{1}{2N}$ )
-    
 - Fixation probability:
     
 
@@ -177,9 +168,7 @@ Genetic drift is:
 The Wright–Fisher model shows that drift is:
 
 - Unbiased in expectation
-    
 - Inevitable in finite populations
-    
 - Strongly dependent on population size
     
 
@@ -190,7 +179,6 @@ The Wright–Fisher model shows that drift is:
 Taking the limit:
 
 -  $N \to \infty$
-    
 - Small changes per generation
     
 
@@ -203,9 +191,7 @@ $$
 This connects Wright–Fisher to:
 
 - Stochastic differential equations
-    
 - Fokker–Planck equations
-    
 - Continuous-time allele frequency dynamics
     
 ---
@@ -224,11 +210,8 @@ This connects Wright–Fisher to:
 ## 12. What the Wright–Fisher model does _not_ include
 
 - Selection → added via biased sampling
-    
 - Mutation → added via mutation matrices
-    
 - Migration → added via structured populations
-    
 - Linkage → single-locus only
     
 
@@ -243,13 +226,9 @@ These extensions define **new models**, not modifications of the core.
 It is the **probabilistic backbone** underlying:
 
 - Genetic drift
-    
 - Neutral theory
-    
 - Diffusion theory
-    
 - Coalescent theory
-    
 - GWAS kinship modeling (via covariance structure)
     
 
@@ -258,15 +237,9 @@ It is the **probabilistic backbone** underlying:
 ## Links
 
 - [[Genetic drift]]
-    
 - [[Allele_frequency]]
-    
 - [[Diffusion_approximation]]
-    
 - [[Coalescent_theory]]
-    
 - [[Site_frequency_spectrum]]
-    
 - [[GWAS_K_matrix]]
-    
 ---

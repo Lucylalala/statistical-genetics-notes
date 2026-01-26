@@ -73,7 +73,6 @@ $$
 Interpretation:
 
 - Each generation contributes a fluctuation of order $1/N$
-    
 - Over $O(N)$ generations, these fluctuations accumulate
     
 This rescaling is essential and not optional.
@@ -92,9 +91,7 @@ $$
 where:
 
 - $W_t$ is standard Brownian motion
-    
 - $M(p)$ is the deterministic drift term
-    
 - $V(p)$ is the diffusion (variance) term
     
 ---
@@ -111,9 +108,7 @@ $$
 Key properties:
 
 - No deterministic trend
-    
 - State-dependent noise
-    
 - Absorbing boundaries at $p=0$ and $p=1$
     
 This process is known as the **Wright–Fisher diffusion**.
@@ -138,7 +133,6 @@ $$
 Interpretation:
 
 - Selection determines the **direction** of change
-    
 - Drift determines the **uncertainty** around that direction
     
 This decomposition formalizes the orthogonality of selection and drift.
@@ -175,7 +169,6 @@ This formulation underlies many results in population genetics, including fixati
 In the diffusion framework:
 
 - $p=0$ and $p=1$ are absorbing boundaries
-    
 - Fixation probability under neutrality:  
 $$
     P_{\mathrm{fix}}(p_0) = p_0  
@@ -192,9 +185,7 @@ Diffusion theory reproduces all classical Wright–Fisher fixation results in co
 Diffusion approximation shows that:
 
 - Genetic drift is not an ad hoc noise term
-    
 - It emerges naturally from finite sampling
-    
 - Its strength is inversely proportional to effective population size
     
 
@@ -221,7 +212,6 @@ SFS / LD / GWAS
 It forms the bridge between:
 
 - Forward-time stochastic dynamics
-    
 - Backward-time genealogical processes
     
 
@@ -232,13 +222,9 @@ It forms the bridge between:
 Only within the diffusion framework can one:
 
 - Derive continuous-time fixation statistics
-    
 - Construct likelihood-based inference
-    
 - Incorporate time-varying population size
-    
 - Connect allele frequencies to coalescent genealogies
-    
 - Interpret GWAS kinship matrices as covariance structures
     
 
@@ -249,9 +235,7 @@ Only within the diffusion framework can one:
 Diffusion approximation assumes:
 
 - Large effective population size
-    
 - Small per-generation changes
-    
 - Weak selection, mutation, and migration
     
 
@@ -270,16 +254,10 @@ It is the mathematical backbone of modern population genetics.
 ## Links
 
 - [[Wright_Fisher_model]]
-    
 - [[Genetic drift]]
-    
 - [[Selection_continuous]]
-    
 - [[Coalescent_theory]]
-    
 - [[Population_structure]]
-    
 - [[GWAS_K_matrix]]
     
 ---
-
